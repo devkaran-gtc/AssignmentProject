@@ -29,6 +29,9 @@
 		664C178629386AB60034E4FB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664C178529386AB60034E4FB /* CoreData.framework */; };
 		664C178829386B730034E4FB /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664C178729386B730034E4FB /* DatabaseHelper.swift */; };
 		664C178B29386D020034E4FB /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664C178A29386D020034E4FB /* PostViewController.swift */; };
+		668C385A293F36C00027B074 /* FollowStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668C3859293F36C00027B074 /* FollowStatus.swift */; };
+		668C385D293F4D2C0027B074 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668C385C293F4D2C0027B074 /* ProfileViewController.swift */; };
+		668C3861293F4F510027B074 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668C3860293F4F510027B074 /* EditProfileViewController.swift */; };
 		669368AE2939CAEE001BE305 /* FloatingLabelInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669368AD2939CAED001BE305 /* FloatingLabelInput.swift */; };
 		66B608E0293DFDAB000A2F5E /* FollowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B608DF293DFDAB000A2F5E /* FollowerViewController.swift */; };
 		66B60912293DFF60000A2F5E /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B60911293DFF60000A2F5E /* FollowerTableViewCell.swift */; };
@@ -61,6 +64,9 @@
 		664C178529386AB60034E4FB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		664C178729386B730034E4FB /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
 		664C178A29386D020034E4FB /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		668C3859293F36C00027B074 /* FollowStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowStatus.swift; sourceTree = "<group>"; };
+		668C385C293F4D2C0027B074 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		668C3860293F4F510027B074 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		669368AD2939CAED001BE305 /* FloatingLabelInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLabelInput.swift; sourceTree = "<group>"; };
 		66B608DF293DFDAB000A2F5E /* FollowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerViewController.swift; sourceTree = "<group>"; };
 		66B60911293DFF60000A2F5E /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
@@ -124,7 +130,7 @@
 				664C176F293863120034E4FB /* Database.xcdatamodeld */,
 				669368AD2939CAED001BE305 /* FloatingLabelInput.swift */,
 				66035740293A10A700AFC8CD /* GoogleService-Info.plist */,
-				66B6092C293E1BE3000A2F5E /* SettingViewController.swift */,
+				668C3859293F36C00027B074 /* FollowStatus.swift */,
 			);
 			path = LoginSignupUI;
 			sourceTree = "<group>";
@@ -151,6 +157,9 @@
 				66294AC02938B42D008247D3 /* DetailViewController.swift */,
 				66B608DF293DFDAB000A2F5E /* FollowerViewController.swift */,
 				66B60911293DFF60000A2F5E /* FollowerTableViewCell.swift */,
+				66B6092C293E1BE3000A2F5E /* SettingViewController.swift */,
+				668C385C293F4D2C0027B074 /* ProfileViewController.swift */,
+				668C3860293F4F510027B074 /* EditProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -292,10 +301,13 @@
 				664BDE002935EFE500F173EA /* LoginTableViewController.swift in Sources */,
 				664C178B29386D020034E4FB /* PostViewController.swift in Sources */,
 				6603A95529374F5F00D7EB70 /* ForgotPasswordVC.swift in Sources */,
+				668C385A293F36C00027B074 /* FollowStatus.swift in Sources */,
 				664C178829386B730034E4FB /* DatabaseHelper.swift in Sources */,
+				668C385D293F4D2C0027B074 /* ProfileViewController.swift in Sources */,
 				6603A95129374EFF00D7EB70 /* SignupViewController.swift in Sources */,
 				66442ED2293DC9F300828E37 /* SocialMediaPostItem+CoreDataProperties.swift in Sources */,
 				660357A5293A189000AFC8CD /* Constants.swift in Sources */,
+				668C3861293F4F510027B074 /* EditProfileViewController.swift in Sources */,
 				664C1771293863120034E4FB /* Database.xcdatamodeld in Sources */,
 				664BDDEB2935DB1A00F173EA /* AppDelegate.swift in Sources */,
 				66B60912293DFF60000A2F5E /* FollowerTableViewCell.swift in Sources */,

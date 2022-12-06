@@ -59,14 +59,16 @@ class LoginTableViewController: UITableViewController {
                 self.errorLabel.text = error!.localizedDescription
                 self.errorLabel.alpha = 1
             } else {
-                let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeVC) as? HomeViewController
-                self.view.window?.rootViewController = homeViewController
-                self.view.window?.makeKeyAndVisible()
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+                mainTabBarController.modalPresentationStyle = .fullScreen
+                
+                self.present(mainTabBarController, animated: true, completion: nil)
+                
             }
         }
     }
     
 }
-
-    
 
