@@ -1,14 +1,22 @@
 {
-  "Post": {
-    "title": { "string": {} },
-    "comments": {
-      "hasMany": "Comment"
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Devkaran",
+      "last_name": "Makvana",
+      "email": "steve@codingthesmartway.com",
+      "imageurl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "followers": 500,
+      "following": 5
+    },
+    {
+      "first_name": "Steve1",
+      "last_name": "jobs1",
+      "email": "steve@apple1.com",
+      "imageurl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "followers": 1000,
+      "following": 2,
+      "id": 2
     }
-  },
-  "Comment": {
-    "body": { "string": {} },
-    "post": {
-      "belongsTo": "Post"
-    }
-  }
+  ]
 }
