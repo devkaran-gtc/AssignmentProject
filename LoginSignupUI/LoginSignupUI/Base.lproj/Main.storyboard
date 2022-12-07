@@ -1541,7 +1541,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img4" translatesAutoresizingMaskIntoConstraints="NO" id="69n-pw-4jl">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="69n-pw-4jl">
                                 <rect key="frame" x="152" y="138" width="110" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="IdG-ii-mMT"/>
@@ -1928,7 +1928,6 @@
         <image name="icon1" width="2601" height="3023"/>
         <image name="img1" width="275" height="183"/>
         <image name="img2" width="275" height="183"/>
-        <image name="img4" width="1000" height="667"/>
         <image name="img5" width="798" height="532"/>
         <image name="img6" width="1200" height="801"/>
         <image name="imgAvatar" width="45" height="45"/>
