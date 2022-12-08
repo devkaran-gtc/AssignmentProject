@@ -27,5 +27,12 @@ class HomeTableViewCell: UITableViewCell {
         
         
     }
+    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+    let homeViewController = segue.destination as! HomeViewController
+
+      //  homeViewController.data.postImg = postImg as? UIImage
+
+    }
     
 }

@@ -56,11 +56,17 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPop
     
     
     @IBAction func saveBtnTapped(_ sender: Any) {
-//        if let vc2 = storyboard?.instantiateViewController(withIdentifier: "Home") as? HomeTableViewCell {
+//        if let vc2 = storyboard?.instantiateViewController(withIdentifier: "HomeTableViewCell") as? HomeTableViewCell {
 //            vc2.placeLbl.text = placeTextField.text
 //            vc2.postImg.image = postImage.image
 //            vc2.descriptionTextView.text = descriptionTxtView.text
-//        }
+        //        }
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            let homeTableViewCell = segue.destination as! HomeTableViewCell
+            homeTableViewCell.postImg.image = postImage.image
+            homeTableViewCell.placeLbl.text = placeTextField.text
+            homeTableViewCell.descriptionTextView.text = descriptionTxtView.text
+        }
     }
 }
 

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SkyFloatingLabelTextField
+//import SkyFloatingLabelTextField
 import TPKeyboardAvoidingSwift
 
 class ForgotPasswordVC: UIViewController {

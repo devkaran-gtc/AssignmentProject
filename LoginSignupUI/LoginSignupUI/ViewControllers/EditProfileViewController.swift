@@ -56,7 +56,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     
     @IBAction func saveBtnTapped(_ sender: Any) {
-        if let vc3 = storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController {
+        if let vc3 = storyboard?.instantiateViewController(withIdentifier: "profile") as? ProfileViewController {
             vc3.profilenameLbl = nameTextField.text!
             vc3.profileImg = profileImage.image!
             vc3.about = aboutTxtView.text
