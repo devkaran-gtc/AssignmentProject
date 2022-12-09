@@ -7,18 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C5313C60B087D163B3ED5A9 /* Pods_LoginSignupUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C54EC7A98016C1EFF1AA0D5 /* Pods_LoginSignupUI.framework */; };
+		3D68E49C03B7871A4B547E63 /* Pods_LoginSignupUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1A563C08BB83502D43276EF /* Pods_LoginSignupUI.framework */; };
 		66035741293A10A700AFC8CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66035740293A10A700AFC8CD /* GoogleService-Info.plist */; };
 		660357A5293A189000AFC8CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660357A3293A189000AFC8CD /* Constants.swift */; };
 		660357A6293A189000AFC8CD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660357A4293A189000AFC8CD /* Utilities.swift */; };
-		6603A95129374EFF00D7EB70 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6603A95029374EFF00D7EB70 /* SignupViewController.swift */; };
 		6603A95529374F5F00D7EB70 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6603A95429374F5F00D7EB70 /* ForgotPasswordVC.swift */; };
 		6603A95929376C7E00D7EB70 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6603A95829376C7D00D7EB70 /* HomeViewController.swift */; };
 		6603A95C293789B600D7EB70 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6603A95B293789B200D7EB70 /* HomeTableViewCell.swift */; };
 		66294AC12938B42D008247D3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66294AC02938B42D008247D3 /* DetailViewController.swift */; };
 		6632DD7F2940C92C0053AAF3 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6632DD7E2940C92C0053AAF3 /* Post.swift */; };
-		66442ECF293DC9D900828E37 /* SocialMediaPostItem+CoreDataClass copy 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66442ECE293DC9D900828E37 /* SocialMediaPostItem+CoreDataClass copy 2.swift */; };
-		66442ED2293DC9F300828E37 /* SocialMediaPostItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66442ED1293DC9F300828E37 /* SocialMediaPostItem+CoreDataProperties.swift */; };
 		664BDDEB2935DB1A00F173EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664BDDEA2935DB1A00F173EA /* AppDelegate.swift */; };
 		664BDDED2935DB1A00F173EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664BDDEC2935DB1A00F173EA /* SceneDelegate.swift */; };
 		664BDDEF2935DB1A00F173EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664BDDEE2935DB1A00F173EA /* ViewController.swift */; };
@@ -26,7 +23,6 @@
 		664BDDF42935DB1C00F173EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 664BDDF32935DB1C00F173EA /* Assets.xcassets */; };
 		664BDDF72935DB1C00F173EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 664BDDF52935DB1C00F173EA /* LaunchScreen.storyboard */; };
 		664BDE002935EFE500F173EA /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664BDDFF2935EFE500F173EA /* LoginTableViewController.swift */; };
-		664C1771293863120034E4FB /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 664C176F293863120034E4FB /* Database.xcdatamodeld */; };
 		664C178629386AB60034E4FB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664C178529386AB60034E4FB /* CoreData.framework */; };
 		664C178829386B730034E4FB /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664C178729386B730034E4FB /* DatabaseHelper.swift */; };
 		664C178B29386D020034E4FB /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664C178A29386D020034E4FB /* PostViewController.swift */; };
@@ -34,25 +30,24 @@
 		668C385D293F4D2C0027B074 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668C385C293F4D2C0027B074 /* ProfileViewController.swift */; };
 		668C3861293F4F510027B074 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668C3860293F4F510027B074 /* EditProfileViewController.swift */; };
 		669368AE2939CAEE001BE305 /* FloatingLabelInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669368AD2939CAED001BE305 /* FloatingLabelInput.swift */; };
+		66AECBE929436C9600D0E3ED /* PostCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66AECBE729436C9600D0E3ED /* PostCoreData.xcdatamodeld */; };
+		66AECBED29436E0D00D0E3ED /* PostItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AECBEB29436E0C00D0E3ED /* PostItem+CoreDataClass.swift */; };
+		66AECBEE29436E0D00D0E3ED /* PostItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AECBEC29436E0D00D0E3ED /* PostItem+CoreDataProperties.swift */; };
 		66B608E0293DFDAB000A2F5E /* FollowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B608DF293DFDAB000A2F5E /* FollowerViewController.swift */; };
 		66B60912293DFF60000A2F5E /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B60911293DFF60000A2F5E /* FollowerTableViewCell.swift */; };
 		66B6092D293E1BE8000A2F5E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B6092C293E1BE3000A2F5E /* SettingViewController.swift */; };
+		66F412BF2941DC46002C9D83 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F412BE2941DC46002C9D83 /* SignupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0C54EC7A98016C1EFF1AA0D5 /* Pods_LoginSignupUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginSignupUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		635E061DE6622B72E4AC9E47 /* Pods-LoginSignupUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginSignupUI.release.xcconfig"; path = "Target Support Files/Pods-LoginSignupUI/Pods-LoginSignupUI.release.xcconfig"; sourceTree = "<group>"; };
 		66035740293A10A700AFC8CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		660357A3293A189000AFC8CD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		660357A4293A189000AFC8CD /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		6603A95029374EFF00D7EB70 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		6603A95429374F5F00D7EB70 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		6603A95829376C7D00D7EB70 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6603A95B293789B200D7EB70 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		66294AC02938B42D008247D3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6632DD7E2940C92C0053AAF3 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		66442ECE293DC9D900828E37 /* SocialMediaPostItem+CoreDataClass copy 2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SocialMediaPostItem+CoreDataClass copy 2.swift"; sourceTree = "<group>"; };
-		66442ED1293DC9F300828E37 /* SocialMediaPostItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SocialMediaPostItem+CoreDataProperties.swift"; path = "/Users/gtcsysmacmini/Projects/iOS/AssignmentProject/LoginSignupUI/LoginSignupUI/SocialMediaPostItem/SocialMediaPostItem+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		664BDDE72935DB1900F173EA /* LoginSignupUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginSignupUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		664BDDEA2935DB1A00F173EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		664BDDEC2935DB1A00F173EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,7 +57,6 @@
 		664BDDF62935DB1C00F173EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		664BDDF82935DB1C00F173EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		664BDDFF2935EFE500F173EA /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
-		664C1770293863120034E4FB /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
 		664C178529386AB60034E4FB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		664C178729386B730034E4FB /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
 		664C178A29386D020034E4FB /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -70,10 +64,16 @@
 		668C385C293F4D2C0027B074 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		668C3860293F4F510027B074 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		669368AD2939CAED001BE305 /* FloatingLabelInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLabelInput.swift; sourceTree = "<group>"; };
+		66AECBE829436C9600D0E3ED /* PostCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PostCoreData.xcdatamodel; sourceTree = "<group>"; };
+		66AECBEB29436E0C00D0E3ED /* PostItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PostItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		66AECBEC29436E0D00D0E3ED /* PostItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PostItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		66B608DF293DFDAB000A2F5E /* FollowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerViewController.swift; sourceTree = "<group>"; };
 		66B60911293DFF60000A2F5E /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
 		66B6092C293E1BE3000A2F5E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		E8E910AA9FFA9C22088288CF /* Pods-LoginSignupUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginSignupUI.debug.xcconfig"; path = "Target Support Files/Pods-LoginSignupUI/Pods-LoginSignupUI.debug.xcconfig"; sourceTree = "<group>"; };
+		66F412BE2941DC46002C9D83 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		770B1CA12F4947BA7B1E6D23 /* Pods-LoginSignupUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginSignupUI.debug.xcconfig"; path = "Target Support Files/Pods-LoginSignupUI/Pods-LoginSignupUI.debug.xcconfig"; sourceTree = "<group>"; };
+		D1A563C08BB83502D43276EF /* Pods_LoginSignupUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginSignupUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3E016DB476777CE608BFFE1 /* Pods-LoginSignupUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginSignupUI.release.xcconfig"; path = "Target Support Files/Pods-LoginSignupUI/Pods-LoginSignupUI.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				664C178629386AB60034E4FB /* CoreData.framework in Frameworks */,
-				1C5313C60B087D163B3ED5A9 /* Pods_LoginSignupUI.framework in Frameworks */,
+				3D68E49C03B7871A4B547E63 /* Pods_LoginSignupUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +104,7 @@
 				664BDDE92935DB1900F173EA /* LoginSignupUI */,
 				664BDDE82935DB1900F173EA /* Products */,
 				D49F4CAD162FE95DCA47E83B /* Frameworks */,
-				C19B7887877888C8414AC226 /* Pods */,
+				D10F22028D9419A4749AA3FE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,11 +129,12 @@
 				664BDDF32935DB1C00F173EA /* Assets.xcassets */,
 				664BDDF52935DB1C00F173EA /* LaunchScreen.storyboard */,
 				664BDDF82935DB1C00F173EA /* Info.plist */,
-				664C176F293863120034E4FB /* Database.xcdatamodeld */,
 				669368AD2939CAED001BE305 /* FloatingLabelInput.swift */,
 				66035740293A10A700AFC8CD /* GoogleService-Info.plist */,
 				668C3859293F36C00027B074 /* FollowStatus.swift */,
 				6632DD7E2940C92C0053AAF3 /* Post.swift */,
+				66F412BE2941DC46002C9D83 /* SignupViewController.swift */,
+				66AECBE729436C9600D0E3ED /* PostCoreData.xcdatamodeld */,
 			);
 			path = LoginSignupUI;
 			sourceTree = "<group>";
@@ -141,8 +142,8 @@
 		664C1784293867190034E4FB /* SocialMediaPostItem */ = {
 			isa = PBXGroup;
 			children = (
-				66442ED1293DC9F300828E37 /* SocialMediaPostItem+CoreDataProperties.swift */,
-				66442ECE293DC9D900828E37 /* SocialMediaPostItem+CoreDataClass copy 2.swift */,
+				66AECBEB29436E0C00D0E3ED /* PostItem+CoreDataClass.swift */,
+				66AECBEC29436E0D00D0E3ED /* PostItem+CoreDataProperties.swift */,
 			);
 			path = SocialMediaPostItem;
 			sourceTree = "<group>";
@@ -154,7 +155,6 @@
 				6603A95829376C7D00D7EB70 /* HomeViewController.swift */,
 				6603A95B293789B200D7EB70 /* HomeTableViewCell.swift */,
 				6603A95429374F5F00D7EB70 /* ForgotPasswordVC.swift */,
-				6603A95029374EFF00D7EB70 /* SignupViewController.swift */,
 				664BDDFF2935EFE500F173EA /* LoginTableViewController.swift */,
 				664C178A29386D020034E4FB /* PostViewController.swift */,
 				66294AC02938B42D008247D3 /* DetailViewController.swift */,
@@ -167,11 +167,11 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		C19B7887877888C8414AC226 /* Pods */ = {
+		D10F22028D9419A4749AA3FE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E8E910AA9FFA9C22088288CF /* Pods-LoginSignupUI.debug.xcconfig */,
-				635E061DE6622B72E4AC9E47 /* Pods-LoginSignupUI.release.xcconfig */,
+				770B1CA12F4947BA7B1E6D23 /* Pods-LoginSignupUI.debug.xcconfig */,
+				F3E016DB476777CE608BFFE1 /* Pods-LoginSignupUI.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -180,7 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				664C178529386AB60034E4FB /* CoreData.framework */,
-				0C54EC7A98016C1EFF1AA0D5 /* Pods_LoginSignupUI.framework */,
+				D1A563C08BB83502D43276EF /* Pods_LoginSignupUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -192,11 +192,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 664BDDFB2935DB1C00F173EA /* Build configuration list for PBXNativeTarget "LoginSignupUI" */;
 			buildPhases = (
-				98893B25EC8968AD489E3617 /* [CP] Check Pods Manifest.lock */,
+				083C45AFDC6EBAC7C960FDC5 /* [CP] Check Pods Manifest.lock */,
 				664BDDE32935DB1900F173EA /* Sources */,
 				664BDDE42935DB1900F173EA /* Frameworks */,
 				664BDDE52935DB1900F173EA /* Resources */,
-				7979D8B5170EC8326DB86A05 /* [CP] Embed Pods Frameworks */,
+				7740DC5ED0474AC147B0A8E3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -254,24 +254,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7979D8B5170EC8326DB86A05 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LoginSignupUI/Pods-LoginSignupUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LoginSignupUI/Pods-LoginSignupUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LoginSignupUI/Pods-LoginSignupUI-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		98893B25EC8968AD489E3617 /* [CP] Check Pods Manifest.lock */ = {
+		083C45AFDC6EBAC7C960FDC5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -293,6 +276,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7740DC5ED0474AC147B0A8E3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LoginSignupUI/Pods-LoginSignupUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LoginSignupUI/Pods-LoginSignupUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LoginSignupUI/Pods-LoginSignupUI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -300,6 +300,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66AECBED29436E0D00D0E3ED /* PostItem+CoreDataClass.swift in Sources */,
+				66AECBE929436C9600D0E3ED /* PostCoreData.xcdatamodeld in Sources */,
 				664BDDEF2935DB1A00F173EA /* ViewController.swift in Sources */,
 				664BDE002935EFE500F173EA /* LoginTableViewController.swift in Sources */,
 				664C178B29386D020034E4FB /* PostViewController.swift in Sources */,
@@ -308,19 +310,17 @@
 				668C385A293F36C00027B074 /* FollowStatus.swift in Sources */,
 				664C178829386B730034E4FB /* DatabaseHelper.swift in Sources */,
 				668C385D293F4D2C0027B074 /* ProfileViewController.swift in Sources */,
-				6603A95129374EFF00D7EB70 /* SignupViewController.swift in Sources */,
-				66442ED2293DC9F300828E37 /* SocialMediaPostItem+CoreDataProperties.swift in Sources */,
 				660357A5293A189000AFC8CD /* Constants.swift in Sources */,
 				668C3861293F4F510027B074 /* EditProfileViewController.swift in Sources */,
-				664C1771293863120034E4FB /* Database.xcdatamodeld in Sources */,
 				664BDDEB2935DB1A00F173EA /* AppDelegate.swift in Sources */,
 				66B60912293DFF60000A2F5E /* FollowerTableViewCell.swift in Sources */,
 				66B608E0293DFDAB000A2F5E /* FollowerViewController.swift in Sources */,
 				660357A6293A189000AFC8CD /* Utilities.swift in Sources */,
-				66442ECF293DC9D900828E37 /* SocialMediaPostItem+CoreDataClass copy 2.swift in Sources */,
 				6603A95929376C7E00D7EB70 /* HomeViewController.swift in Sources */,
+				66F412BF2941DC46002C9D83 /* SignupViewController.swift in Sources */,
 				66B6092D293E1BE8000A2F5E /* SettingViewController.swift in Sources */,
 				6603A95C293789B600D7EB70 /* HomeTableViewCell.swift in Sources */,
+				66AECBEE29436E0D00D0E3ED /* PostItem+CoreDataProperties.swift in Sources */,
 				664BDDED2935DB1A00F173EA /* SceneDelegate.swift in Sources */,
 				66294AC12938B42D008247D3 /* DetailViewController.swift in Sources */,
 				669368AE2939CAEE001BE305 /* FloatingLabelInput.swift in Sources */,
@@ -467,7 +467,7 @@
 		};
 		664BDDFC2935DB1C00F173EA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8E910AA9FFA9C22088288CF /* Pods-LoginSignupUI.debug.xcconfig */;
+			baseConfigurationReference = 770B1CA12F4947BA7B1E6D23 /* Pods-LoginSignupUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -486,7 +486,7 @@
 		};
 		664BDDFD2935DB1C00F173EA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 635E061DE6622B72E4AC9E47 /* Pods-LoginSignupUI.release.xcconfig */;
+			baseConfigurationReference = F3E016DB476777CE608BFFE1 /* Pods-LoginSignupUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -527,13 +527,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		664C176F293863120034E4FB /* Database.xcdatamodeld */ = {
+		66AECBE729436C9600D0E3ED /* PostCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				664C1770293863120034E4FB /* Database.xcdatamodel */,
+				66AECBE829436C9600D0E3ED /* PostCoreData.xcdatamodel */,
 			);
-			currentVersion = 664C1770293863120034E4FB /* Database.xcdatamodel */;
-			path = Database.xcdatamodeld;
+			currentVersion = 66AECBE829436C9600D0E3ED /* PostCoreData.xcdatamodel */;
+			path = PostCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import TPKeyboardAvoidingSwift
 
 class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UINavigationControllerDelegate {
     
@@ -54,19 +53,26 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPop
         dismiss(animated: true, completion: nil)
     }
     
-    
     @IBAction func saveBtnTapped(_ sender: Any) {
 //        if let vc2 = storyboard?.instantiateViewController(withIdentifier: "HomeTableViewCell") as? HomeTableViewCell {
 //            vc2.placeLbl.text = placeTextField.text
 //            vc2.postImg.image = postImage.image
 //            vc2.descriptionTextView.text = descriptionTxtView.text
         //        }
-        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            let homeTableViewCell = segue.destination as! HomeTableViewCell
-            homeTableViewCell.postImg.image = postImage.image
-            homeTableViewCell.placeLbl.text = placeTextField.text
-            homeTableViewCell.descriptionTextView.text = descriptionTxtView.text
+//        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//            let homeTableViewCell = segue.destination as! HomeTableViewCell
+//            homeTableViewCell.postImg.image = postImage.image
+//            homeTableViewCell.placeLbl.text = placeTextField.text
+//            homeTableViewCell.descriptionTextView.text = descriptionTxtView.text
+//        }
+        
+        let place = placeTextField.text ?? ""
+        let desc = descriptionTxtView.text ?? ""
+        
+        if let imageData = postImage.image?.jpegData(compressionQuality: 1) {
+            DatabaseHelper.shareInstance.save(description: desc, place: place, postImg: imageData)
         }
+        _ = navigationController?.popViewController(animated: true)
     }
 }
 

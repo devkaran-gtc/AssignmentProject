@@ -6,11 +6,8 @@
 //
 
 import UIKit
-import TPKeyboardAvoidingSwift
-import Firebase
 
 class LoginTableViewController: UITableViewController {
-    
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -47,27 +44,27 @@ class LoginTableViewController: UITableViewController {
     @IBAction func signInBtnTapped(_ sender: Any) {
         
         // create cleaned version of the text field
-        let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        // signing in the user
-        Auth.auth().signIn(withEmail: email, password: password) { (resule, error) in
-            
-            if error != nil {
-                
-                //couldn't sign in
-                self.errorLabel.text = error!.localizedDescription
-                self.errorLabel.alpha = 1
-            } else {
-                
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
-                mainTabBarController.modalPresentationStyle = .fullScreen
-                
-                self.present(mainTabBarController, animated: true, completion: nil)
-                
-            }
-        }
+//        let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+//        let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+//        
+//        // signing in the user
+//        Auth.auth().signIn(withEmail: email, password: password) { (resule, error) in
+//            
+//            if error != nil {
+//                
+//                //couldn't sign in
+//                self.errorLabel.text = error!.localizedDescription
+//                self.errorLabel.alpha = 1
+//            } else {
+//                
+//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+//                mainTabBarController.modalPresentationStyle = .fullScreen
+//                
+//                self.present(mainTabBarController, animated: true, completion: nil)
+//                
+//            }
+//        }
     }
     
 }

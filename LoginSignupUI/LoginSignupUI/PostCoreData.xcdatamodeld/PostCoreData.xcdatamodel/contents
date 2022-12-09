@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="SocialMediaPostItem" representedClassName="SocialMediaPostItem" syncable="YES" codeGenerationType="class">
-        <attribute name="attribute" optional="YES"/>
+    <entity name="PostItem" representedClassName="PostItem" syncable="YES">
+        <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="place" optional="YES" attributeType="String"/>
         <attribute name="postImg" optional="YES" attributeType="Binary"/>
     </entity>
     <elements>
-        <element name="SocialMediaPostItem" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="PostItem" positionX="-45" positionY="0" width="128" height="88"/>
     </elements>
 </model>

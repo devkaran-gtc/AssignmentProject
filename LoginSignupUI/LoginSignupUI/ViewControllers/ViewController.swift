@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import TPKeyboardAvoidingSwift
 
 class ViewController: UIViewController {
     

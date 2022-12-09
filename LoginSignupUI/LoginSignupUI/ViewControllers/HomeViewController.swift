@@ -7,17 +7,17 @@
 
 import UIKit
 import CoreData
-import TPKeyboardAvoidingSwift
 
 class HomeViewController: UIViewController {
     
+    var images = [PostItem]()
     @IBOutlet var tableView: UITableView!
     struct Data {
         let imgName: String
         let name: String
         let place: String
         let postImg: String
-        let description: String
+        var description: String
     }
     
     let data: [Data] = [
@@ -36,12 +36,18 @@ class HomeViewController: UIViewController {
         configureItems()
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        fetchData()
+      //  fetchData()
     }
     
-    func fetchData() {
-        
+    override func viewWillAppear(_ animated: Bool) {
+        loaddata()
+        tableView.reloadData()
     }
+    
+    func loaddata() {
+        images = DatabaseHelper.shareInstance.fetchImage()
+    }
+    
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
@@ -80,7 +86,7 @@ extension HomeViewController: UITableViewDelegate {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        images.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -88,13 +94,25 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let Data1 = data[indexPath.row]
+//        let Data1 = data[indexPath.row]
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
+//        cell.profileImg.image = UIImage(named: Data1.imgName)
+//        cell.nameLbl.text = Data1.name
+//        cell.placeLbl.text = Data1.place
+//        cell.postImg.image = UIImage(named: Data1.postImg)
+//        cell.descriptionTextView.text = Data1.description
+//        return cell
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
-        cell.profileImg.image = UIImage(named: Data1.imgName)
-        cell.nameLbl.text = Data1.name
-        cell.placeLbl.text = Data1.place
-        cell.postImg.image = UIImage(named: Data1.postImg)
-        cell.descriptionTextView.text = Data1.description
+        let row = images[indexPath.row]
+        cell.descriptionTextView = row.description
+        cell.placeLbl = row.place
+        
+        if let dataa = row.postImg{
+            cell.postImg.image = UIImage(data: dataa)
+        } else {
+            cell.postImg.image = nil
+        }
         return cell
     }
     

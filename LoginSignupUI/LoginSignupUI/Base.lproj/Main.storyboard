@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LoginSignupUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="LoginSignupUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -227,12 +227,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="hce-ze-GrV"/>
                     <connections>
-                        <outlet property="confirmPassTextField" destination="8Po-M9-d8w" id="VmO-aF-Svr"/>
-                        <outlet property="countryTextField" destination="Po6-Y3-bfE" id="KxJ-E0-QsL"/>
-                        <outlet property="emailTextField" destination="O1n-lQ-lU5" id="dkH-xI-XwJ"/>
-                        <outlet property="errorLabel" destination="aDF-Fd-D2I" id="6rb-yd-DTy"/>
-                        <outlet property="passwordTextField" destination="Y54-kM-sxW" id="TIG-Kg-9CK"/>
-                        <outlet property="userNameTextField" destination="i3s-y6-VkH" id="Roj-A2-uhb"/>
+                        <outlet property="confirmPassTextField" destination="8Po-M9-d8w" id="dF7-Qm-2QK"/>
+                        <outlet property="countryTextField" destination="Po6-Y3-bfE" id="RYT-Qs-d7r"/>
+                        <outlet property="emailTextField" destination="O1n-lQ-lU5" id="Z6h-kv-AU7"/>
+                        <outlet property="errorLabel" destination="aDF-Fd-D2I" id="MqQ-Jr-JxY"/>
+                        <outlet property="passwordTextField" destination="Y54-kM-sxW" id="I59-Ha-u4y"/>
+                        <outlet property="userNameTextField" destination="i3s-y6-VkH" id="aoA-cE-EcU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4iH-Me-3NF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

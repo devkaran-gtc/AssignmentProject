@@ -13,15 +13,16 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var profileImage: UIImageView!
-    @IBOutlet var aboutTxtView: UITextView! 
-
+    @IBOutlet var aboutTxtView: UITextView!
+    
+  //  var ref:DatabaseReference?
     override func viewDidLoad() {
         super.viewDidLoad()
         picker1?.delegate = self
-
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-      
+ //       ref = Database.database().reference()
     }
     
     @objc func dismissKeyboard() {
@@ -56,14 +57,14 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     
     @IBAction func saveBtnTapped(_ sender: Any) {
-        if let vc3 = storyboard?.instantiateViewController(withIdentifier: "profile") as? ProfileViewController {
-            vc3.profilenameLbl = nameTextField.text!
-            vc3.profileImg = profileImage.image!
-            vc3.about = aboutTxtView.text
-            navigationController?.pushViewController(vc3, animated: true)
-        }
+                if let vc3 = storyboard?.instantiateViewController(withIdentifier: "profile") as? ProfileViewController {
+                    vc3.profilenameLbl = nameTextField.text!
+                    vc3.profileImg = profileImage.image!
+                    vc3.about = aboutTxtView.text
+                    navigationController?.pushViewController(vc3, animated: true)
+                }
     }
-   
+    
     @IBAction func backBtnTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mainTabBarController = storyboard.instantiateViewController(identifier: "ProfileViewController")
@@ -71,4 +72,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         self.present(mainTabBarController, animated: true, completion: nil)
     }
+   
 }
+
