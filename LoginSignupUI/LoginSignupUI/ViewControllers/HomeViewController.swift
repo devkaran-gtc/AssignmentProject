@@ -8,25 +8,30 @@
 import UIKit
 import CoreData
 
+protocol DataPass {
+    func post(object:[String:String])
+}
 class HomeViewController: UIViewController {
     
     var images = [PostItem]()
+    var delegate: DataPass!
     @IBOutlet var tableView: UITableView!
-    struct Data {
-        let imgName: String
-        let name: String
-        let place: String
-        let postImg: String
-        var description: String
-    }
     
-    let data: [Data] = [
-        Data(imgName: "img1", name: "Prisha Mclaughlin", place: "Ahmedabad", postImg: "img2", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
-        
-        Data(imgName: "img3", name: "Prisha Mclaughlin", place: "Ahmedabad", postImg: "img4", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
-        
-        Data(imgName: "img5", name: "Prisha Mclaughlin", place: "Ahmedabad", postImg: "img6", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
-    ]
+//    struct Data {
+//        let imgName: String
+//        let name: String
+//        let place: String
+//        let postImg: String
+//        var description: String
+//    }
+//    
+//    let data: [Data] = [
+//        Data(imgName: "img1", name: "Prisha Mclaughlin", place: "Ahmedabad", postImg: "img2", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
+//        
+//        Data(imgName: "img3", name: "Prisha Mclaughlin", place: "Ahmedabad", postImg: "img4", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
+//        
+//        Data(imgName: "img5", name: "Prisha Mclaughlin", place: "Ahmedabad", postImg: "img6", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
+//    ]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -105,47 +110,43 @@ extension HomeViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
         let row = images[indexPath.row]
-        cell.descriptionTextView = row.description
-        cell.placeLbl = row.place
+        cell.descriptionTextView.text = row.desc
+        cell.placeLbl.text = row.place
         
-        if let dataa = row.postImg{
-            cell.postImg.image = UIImage(data: dataa)
+        if let dataa = row.postImg {
+            cell.postImgView.image = UIImage(data: dataa)
         } else {
-            cell.postImg.image = nil
+            cell.postImgView.image = nil
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let Data = data[indexPath.row]
-        if let vc1 = storyboard?.instantiateViewController(withIdentifier: "detailViewSegue") as? DetailViewController {
-            vc1.post = UIImage(named: Data.postImg)!
-            vc1.profile = UIImage(named: Data.imgName)!
-            vc1.nameLbl = Data.name
-            vc1.placeLbl = Data.place
-            vc1.descriptionlbl = Data.description
-            navigationController?.pushViewController(vc1, animated: true)
-        }
+        let vc = storyboard?.instantiateViewController(withIdentifier: "detailViewSegue") as? DetailViewController
+        navigationController?.pushViewController(vc!, animated: true)
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let edit = UIContextualAction(style: .normal, title: "Edit") { (_, _, _) in
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "addPostSegue") as? PostViewController
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
+        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [edit])
+        return swipeConfiguration
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            tableView.beginUpdates()
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            switch indexPath.section {
-            case 0:
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-            case 1:
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-            default:
-                break
-            }
-            tableView.endUpdates()
+            let row = images[indexPath.row]
+            images.remove(at: indexPath.row)
+            DatabaseHelper.shareInstance.deleteData(place: row.place!)
+            self.tableView.reloadData()
         }
+        
     }
 }
 

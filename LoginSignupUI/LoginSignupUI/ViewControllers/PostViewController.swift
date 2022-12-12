@@ -10,7 +10,9 @@ import UIKit
 class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UINavigationControllerDelegate {
     
     var picker:UIImagePickerController?=UIImagePickerController()
-    
+    var indexRow = Int()
+    var isEditingUser: Bool = false
+
     @IBOutlet var placeTextField: UITextField!
     @IBOutlet var postImage: UIImageView!
     @IBOutlet var descriptionTxtView: UITextView!
@@ -66,11 +68,11 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPop
 //            homeTableViewCell.descriptionTextView.text = descriptionTxtView.text
 //        }
         
-        let place = placeTextField.text ?? ""
+        let placeLbl = placeTextField.text ?? ""
         let desc = descriptionTxtView.text ?? ""
         
         if let imageData = postImage.image?.jpegData(compressionQuality: 1) {
-            DatabaseHelper.shareInstance.save(description: desc, place: place, postImg: imageData)
+            DatabaseHelper.shareInstance.save(desc: desc, place: placeLbl, postImg: imageData)
         }
         _ = navigationController?.popViewController(animated: true)
     }

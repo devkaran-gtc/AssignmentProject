@@ -13,7 +13,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet var nameLbl: UILabel!
     @IBOutlet var placeLbl: UILabel!
     @IBOutlet var followingBtn: UIButton!
-    @IBOutlet var postImg: UIImageView!
+    @IBOutlet var postImgView: UIImageView!
     @IBOutlet var descriptionTextView: UITextView!
     
     override func awakeFromNib() {
@@ -26,12 +26,12 @@ class HomeTableViewCell: UITableViewCell {
         
         
     }
-    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-    let homeViewController = segue.destination as! HomeViewController
-
-      //  homeViewController.data.postImg = postImg as? UIImage
-
-    }
+//    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        _ = segue.destination as! HomeViewController
+//
+//      //  homeViewController.data.postImg = postImg as? UIImage
+//
+//    }
     
 }

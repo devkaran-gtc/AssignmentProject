@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
     var profileImg = UIImage()
     var profilenameLbl = ""
     var about = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -30,6 +31,10 @@ class ProfileViewController: UIViewController {
         view.endEditing(true)
     }
     
+    @IBAction func editBtnTapped(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "EditProfileViewController") as? EditProfileViewController
+        navigationController?.pushViewController(vc!, animated: true)
+    }
     @IBAction func backBtnTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let VC1 = storyboard.instantiateViewController(identifier: "SettingViewController")

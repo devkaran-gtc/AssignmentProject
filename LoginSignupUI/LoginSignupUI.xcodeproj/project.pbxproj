@@ -26,13 +26,13 @@
 		664C178629386AB60034E4FB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664C178529386AB60034E4FB /* CoreData.framework */; };
 		664C178829386B730034E4FB /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664C178729386B730034E4FB /* DatabaseHelper.swift */; };
 		664C178B29386D020034E4FB /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664C178A29386D020034E4FB /* PostViewController.swift */; };
+		6655EEEA294708DE008558CB /* PostItem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6655EEE8294708DE008558CB /* PostItem.xcdatamodeld */; };
+		6655EEEF2947094C008558CB /* PostItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6655EEEE2947094C008558CB /* PostItem+CoreDataClass.swift */; };
+		6655EEF229470956008558CB /* PostItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6655EEF129470956008558CB /* PostItem+CoreDataProperties.swift */; };
 		668C385A293F36C00027B074 /* FollowStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668C3859293F36C00027B074 /* FollowStatus.swift */; };
 		668C385D293F4D2C0027B074 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668C385C293F4D2C0027B074 /* ProfileViewController.swift */; };
 		668C3861293F4F510027B074 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668C3860293F4F510027B074 /* EditProfileViewController.swift */; };
 		669368AE2939CAEE001BE305 /* FloatingLabelInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669368AD2939CAED001BE305 /* FloatingLabelInput.swift */; };
-		66AECBE929436C9600D0E3ED /* PostCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66AECBE729436C9600D0E3ED /* PostCoreData.xcdatamodeld */; };
-		66AECBED29436E0D00D0E3ED /* PostItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AECBEB29436E0C00D0E3ED /* PostItem+CoreDataClass.swift */; };
-		66AECBEE29436E0D00D0E3ED /* PostItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AECBEC29436E0D00D0E3ED /* PostItem+CoreDataProperties.swift */; };
 		66B608E0293DFDAB000A2F5E /* FollowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B608DF293DFDAB000A2F5E /* FollowerViewController.swift */; };
 		66B60912293DFF60000A2F5E /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B60911293DFF60000A2F5E /* FollowerTableViewCell.swift */; };
 		66B6092D293E1BE8000A2F5E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B6092C293E1BE3000A2F5E /* SettingViewController.swift */; };
@@ -60,13 +60,13 @@
 		664C178529386AB60034E4FB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		664C178729386B730034E4FB /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
 		664C178A29386D020034E4FB /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		6655EEE9294708DE008558CB /* PostItem.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PostItem.xcdatamodel; sourceTree = "<group>"; };
+		6655EEEE2947094C008558CB /* PostItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PostItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6655EEF129470956008558CB /* PostItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PostItem+CoreDataProperties.swift"; path = "/Users/gtcsysmacmini/Projects/iOS/AssignmentProject/LoginSignupUI/LoginSignupUI/PostItem1/PostItem+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		668C3859293F36C00027B074 /* FollowStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowStatus.swift; sourceTree = "<group>"; };
 		668C385C293F4D2C0027B074 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		668C3860293F4F510027B074 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		669368AD2939CAED001BE305 /* FloatingLabelInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLabelInput.swift; sourceTree = "<group>"; };
-		66AECBE829436C9600D0E3ED /* PostCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PostCoreData.xcdatamodel; sourceTree = "<group>"; };
-		66AECBEB29436E0C00D0E3ED /* PostItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PostItem+CoreDataClass.swift"; sourceTree = "<group>"; };
-		66AECBEC29436E0D00D0E3ED /* PostItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PostItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		66B608DF293DFDAB000A2F5E /* FollowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerViewController.swift; sourceTree = "<group>"; };
 		66B60911293DFF60000A2F5E /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
 		66B6092C293E1BE3000A2F5E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 		664BDDE92935DB1900F173EA /* LoginSignupUI */ = {
 			isa = PBXGroup;
 			children = (
-				664C1784293867190034E4FB /* SocialMediaPostItem */,
+				6655EEEC29470927008558CB /* PostItem1 */,
 				664BDDEA2935DB1A00F173EA /* AppDelegate.swift */,
 				664BDDEC2935DB1A00F173EA /* SceneDelegate.swift */,
 				660357A2293A189000AFC8CD /* Helpers */,
@@ -134,18 +134,9 @@
 				668C3859293F36C00027B074 /* FollowStatus.swift */,
 				6632DD7E2940C92C0053AAF3 /* Post.swift */,
 				66F412BE2941DC46002C9D83 /* SignupViewController.swift */,
-				66AECBE729436C9600D0E3ED /* PostCoreData.xcdatamodeld */,
+				6655EEE8294708DE008558CB /* PostItem.xcdatamodeld */,
 			);
 			path = LoginSignupUI;
-			sourceTree = "<group>";
-		};
-		664C1784293867190034E4FB /* SocialMediaPostItem */ = {
-			isa = PBXGroup;
-			children = (
-				66AECBEB29436E0C00D0E3ED /* PostItem+CoreDataClass.swift */,
-				66AECBEC29436E0D00D0E3ED /* PostItem+CoreDataProperties.swift */,
-			);
-			path = SocialMediaPostItem;
 			sourceTree = "<group>";
 		};
 		664C179029388CD20034E4FB /* ViewControllers */ = {
@@ -165,6 +156,15 @@
 				668C3860293F4F510027B074 /* EditProfileViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6655EEEC29470927008558CB /* PostItem1 */ = {
+			isa = PBXGroup;
+			children = (
+				6655EEF129470956008558CB /* PostItem+CoreDataProperties.swift */,
+				6655EEEE2947094C008558CB /* PostItem+CoreDataClass.swift */,
+			);
+			path = PostItem1;
 			sourceTree = "<group>";
 		};
 		D10F22028D9419A4749AA3FE /* Pods */ = {
@@ -300,8 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66AECBED29436E0D00D0E3ED /* PostItem+CoreDataClass.swift in Sources */,
-				66AECBE929436C9600D0E3ED /* PostCoreData.xcdatamodeld in Sources */,
+				6655EEEF2947094C008558CB /* PostItem+CoreDataClass.swift in Sources */,
 				664BDDEF2935DB1A00F173EA /* ViewController.swift in Sources */,
 				664BDE002935EFE500F173EA /* LoginTableViewController.swift in Sources */,
 				664C178B29386D020034E4FB /* PostViewController.swift in Sources */,
@@ -310,6 +309,7 @@
 				668C385A293F36C00027B074 /* FollowStatus.swift in Sources */,
 				664C178829386B730034E4FB /* DatabaseHelper.swift in Sources */,
 				668C385D293F4D2C0027B074 /* ProfileViewController.swift in Sources */,
+				6655EEEA294708DE008558CB /* PostItem.xcdatamodeld in Sources */,
 				660357A5293A189000AFC8CD /* Constants.swift in Sources */,
 				668C3861293F4F510027B074 /* EditProfileViewController.swift in Sources */,
 				664BDDEB2935DB1A00F173EA /* AppDelegate.swift in Sources */,
@@ -320,7 +320,7 @@
 				66F412BF2941DC46002C9D83 /* SignupViewController.swift in Sources */,
 				66B6092D293E1BE8000A2F5E /* SettingViewController.swift in Sources */,
 				6603A95C293789B600D7EB70 /* HomeTableViewCell.swift in Sources */,
-				66AECBEE29436E0D00D0E3ED /* PostItem+CoreDataProperties.swift in Sources */,
+				6655EEF229470956008558CB /* PostItem+CoreDataProperties.swift in Sources */,
 				664BDDED2935DB1A00F173EA /* SceneDelegate.swift in Sources */,
 				66294AC12938B42D008247D3 /* DetailViewController.swift in Sources */,
 				669368AE2939CAEE001BE305 /* FloatingLabelInput.swift in Sources */,
@@ -527,13 +527,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		66AECBE729436C9600D0E3ED /* PostCoreData.xcdatamodeld */ = {
+		6655EEE8294708DE008558CB /* PostItem.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				66AECBE829436C9600D0E3ED /* PostCoreData.xcdatamodel */,
+				6655EEE9294708DE008558CB /* PostItem.xcdatamodel */,
 			);
-			currentVersion = 66AECBE829436C9600D0E3ED /* PostCoreData.xcdatamodel */;
-			path = PostCoreData.xcdatamodeld;
+			currentVersion = 6655EEE9294708DE008558CB /* PostItem.xcdatamodel */;
+			path = PostItem.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

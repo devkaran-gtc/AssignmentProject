@@ -822,7 +822,7 @@
         <!--Detail View Controller-->
         <scene sceneID="jFr-yM-gsa">
             <objects>
-                <viewController storyboardIdentifier="detailViewSegue" id="hCR-Lx-NG8" customClass="DetailViewController" customModule="LoginSignupUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailViewSegue" id="hCR-Lx-NG8" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q0O-jD-OB3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1056,7 +1056,7 @@
                                             <outlet property="followingBtn" destination="ue4-bM-qR7" id="qWh-3b-Fph"/>
                                             <outlet property="nameLbl" destination="9NV-Eu-mf2" id="WVD-n6-UAW"/>
                                             <outlet property="placeLbl" destination="MiS-06-w2G" id="AU3-8E-hkY"/>
-                                            <outlet property="postImg" destination="wRH-Ab-jnv" id="gAU-F4-jYQ"/>
+                                            <outlet property="postImgView" destination="wRH-Ab-jnv" id="sOX-0H-sDN"/>
                                             <outlet property="profileImg" destination="nUI-v8-wp8" id="0ur-S5-KXR"/>
                                         </connections>
                                     </tableViewCell>
@@ -1583,13 +1583,13 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Graphic-Resources" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DR6-21-iHE">
-                                <rect key="frame" x="133.5" y="260" width="147.5" height="20.5"/>
+                                <rect key="frame" x="133" y="260" width="148" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interior Designer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQn-P1-Kmc">
-                                <rect key="frame" x="160" y="288.5" width="108" height="17"/>
+                                <rect key="frame" x="146" y="288.5" width="122" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1610,7 +1610,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="OS7-BH-ez4" kind="show" id="XQo-j8-z7b"/>
+                                    <action selector="editBtnTapped:" destination="DBt-QN-wEG" eventType="touchUpInside" id="aLQ-Hp-oLv"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ImI-Yw-dF1">
@@ -1765,8 +1765,8 @@
                             <constraint firstItem="SR1-EO-XtY" firstAttribute="centerY" secondItem="UF0-54-wNd" secondAttribute="centerY" id="2Rt-kd-p0m"/>
                             <constraint firstItem="Bbq-xu-MqY" firstAttribute="trailing" secondItem="mQn-P1-Kmc" secondAttribute="trailing" constant="146" id="3eX-lB-I6z"/>
                             <constraint firstItem="SR1-EO-XtY" firstAttribute="top" secondItem="mQn-P1-Kmc" secondAttribute="bottom" constant="100" id="4hj-pN-vnR"/>
-                            <constraint firstItem="mQn-P1-Kmc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Bbq-xu-MqY" secondAttribute="leading" constant="30" id="6LJ-rd-zpt"/>
-                            <constraint firstItem="DR6-21-iHE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Bbq-xu-MqY" secondAttribute="leading" constant="30" id="De2-9m-Zwz"/>
+                            <constraint firstItem="mQn-P1-Kmc" firstAttribute="leading" secondItem="Bbq-xu-MqY" secondAttribute="leading" constant="146" id="6LJ-rd-zpt"/>
+                            <constraint firstItem="DR6-21-iHE" firstAttribute="leading" secondItem="Bbq-xu-MqY" secondAttribute="leading" constant="133" id="De2-9m-Zwz"/>
                             <constraint firstItem="mQn-P1-Kmc" firstAttribute="top" secondItem="DR6-21-iHE" secondAttribute="bottom" constant="8" id="JRR-jk-IAI"/>
                             <constraint firstItem="Bbq-xu-MqY" firstAttribute="trailing" secondItem="69n-pw-4jl" secondAttribute="trailing" constant="152" id="L4Z-H6-lZl"/>
                             <constraint firstItem="Bbq-xu-MqY" firstAttribute="trailing" secondItem="DR6-21-iHE" secondAttribute="trailing" constant="133" id="LQz-LX-KiM"/>
@@ -1812,7 +1812,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vyY-Qs-aHl" customClass="FloatingLabelInput" customModule="LoginSignupUI" customModuleProvider="target">
-                                <rect key="frame" x="25" y="113" width="364" height="69"/>
+                                <rect key="frame" x="25" y="69" width="364" height="69"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="69" id="ZCO-rW-Xyy"/>
                                 </constraints>
@@ -1820,7 +1820,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJI-rF-Hcu">
-                                <rect key="frame" x="306" y="217" width="83" height="33"/>
+                                <rect key="frame" x="306" y="173" width="83" height="33"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="83" id="6N1-QT-4Yv"/>
@@ -1846,7 +1846,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img5" translatesAutoresizingMaskIntoConstraints="NO" id="IGq-D9-dtY">
-                                <rect key="frame" x="25" y="285" width="364" height="271"/>
+                                <rect key="frame" x="25" y="241" width="364" height="271"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="271" id="fC7-cI-u9R"/>
                                 </constraints>
@@ -1857,7 +1857,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="etz-mm-xAE">
-                                <rect key="frame" x="25" y="583" width="364" height="94"/>
+                                <rect key="frame" x="25" y="539" width="364" height="94"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="94" id="UhV-6M-cE0"/>
@@ -1867,7 +1867,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmW-Ax-aBc">
-                                <rect key="frame" x="25" y="745" width="364" height="58"/>
+                                <rect key="frame" x="25" y="794" width="364" height="58"/>
                                 <color key="backgroundColor" red="0.15686274510000001" green="0.80392156859999997" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="vXM-AQ-sfD"/>

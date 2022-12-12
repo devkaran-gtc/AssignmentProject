@@ -13,17 +13,17 @@ class DatabaseHelper {
     
     static let shareInstance = DatabaseHelper()
     
-    func save(description:String, place:String, postImg: Data) {
+    func save(desc:String, place:String, postImg: Data) {
         
         guard  let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
             
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let imageInstance = PostItem(context: managedContext)
-        imageInstance.postImg = postImg
-        imageInstance.desc = description
+        imageInstance.desc = desc
         imageInstance.place = place
-        
+        imageInstance.postImg = postImg
+       
         do {
             print("saved.")
             try managedContext.save()
@@ -71,6 +71,24 @@ class DatabaseHelper {
         }
         catch {
             print(error)
+        }
+    }
+    
+    func updateItem(desc1: String, place1: String, postImg1: Data) {
+        
+        guard  let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let imageInstance = PostItem(context: managedContext)
+        imageInstance.desc = desc1
+        imageInstance.place = place1
+        imageInstance.postImg = postImg1
+       
+        do {
+            print("update.")
+            try managedContext.save()
+        } catch let error as NSError {
+            print("could not update. \(error), \(error.userInfo)")
         }
     }
 }
