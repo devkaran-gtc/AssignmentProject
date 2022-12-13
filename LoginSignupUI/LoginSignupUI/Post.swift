@@ -12,18 +12,18 @@ import UIKit
 
 class Post {
     
-    static let shareInstance = DatabaseHelper()
+    static let shareInstance = Post()
     
-    func save(about:String, name:String, profileImg: Data) {
+    func saveData(about:String, name:String, profileImg: Data) {
         
         guard  let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
             
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let imageInstance = PostItem(context: managedContext)
-//        imageInstance.about = about
-//        imageInstance.name = name
-//        imageInstance.profileImg = profileImg
+        let imageInstance = EditProfile(context: managedContext)
+        imageInstance.about = about
+        imageInstance.name = name
+        imageInstance.profileImg = profileImg
        
         do {
             print("saved.")
@@ -33,20 +33,20 @@ class Post {
         }
     }
     
-    func fetchImage() -> [PostItem] {
+    func fetchData() -> [EditProfile] {
         
-        var fetchingImage = [PostItem]()
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return fetchingImage }
+        var fetchData = [EditProfile]()
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return fetchData }
         let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PostItem")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "EditProfile")
         
         do {
             print("All data.")
-            fetchingImage = try managedContext.fetch(fetchRequest) as! [PostItem]
+            fetchData = try managedContext.fetch(fetchRequest) as! [EditProfile]
         } catch {
             print(error)
         }
         
-        return fetchingImage
+        return fetchData
     }
 }

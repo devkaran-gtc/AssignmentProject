@@ -122,8 +122,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc1 = storyboard?.instantiateViewController(withIdentifier: "detailViewSegue") as? DetailViewController
-        navigationController?.pushViewController(vc1!, animated: true)
+        
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true

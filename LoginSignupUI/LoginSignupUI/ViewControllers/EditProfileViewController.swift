@@ -64,11 +64,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 //                    navigationController?.pushViewController(vc3, animated: true)
 //                }
         
-        let placeLbl = nameTextField.text ?? ""
-        let desc = aboutTxtView.text ?? ""
+        let nameLbl = nameTextField.text ?? ""
+        let about = aboutTxtView.text ?? ""
         
-        if let imageData = profileImage.image?.jpegData(compressionQuality: 1) {
-            
+        if let imagedata = profileImage.image?.jpegData(compressionQuality: 1) {
+            Post.shareInstance.saveData(about: about, name: nameLbl, profileImg: imagedata)
         }
         _ = navigationController?.popViewController(animated: true)
     }

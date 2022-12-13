@@ -6,9 +6,10 @@
 //
 
 import UIKit
-
+import CoreData
 class ProfileViewController: UIViewController {
     
+    var post = [EditProfile]()
     @IBOutlet var profileImgView: UIImageView!
     @IBOutlet var profileName: UILabel!
     @IBOutlet var aboutLbl: UILabel!
@@ -26,6 +27,16 @@ class ProfileViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadData()
+    
+    }
+    
+    func loadData() {
+        post = Post.shareInstance.fetchData()
+    }
+    
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)

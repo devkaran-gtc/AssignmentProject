@@ -21,7 +21,15 @@ class SettingViewController: UIViewController {
   //  var diameter: CGFloat = 30.0
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        badge1?.layer.masksToBounds = true
+        badge2?.layer.masksToBounds = true
+        badge3?.layer.masksToBounds = true
+        badge4?.layer.masksToBounds = true
+
+        badge1.layer.cornerRadius = badge1.frame.size.width / 2
+        badge2.layer.cornerRadius = badge2.frame.size.width / 2
+        badge3.layer.cornerRadius = badge3.frame.size.width / 2
+        badge4.layer.cornerRadius = badge4.frame.size.width / 2
         }
         
     @IBAction func logOutBtnTapped(_ sender: UIButton) {

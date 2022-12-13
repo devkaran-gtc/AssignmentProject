@@ -58,13 +58,13 @@ class SignupViewController: UIViewController {
         } else {
             
             // create cleaned version of the data.
-            let username = userNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            _ = userNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
-            let country = countryTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            _ = countryTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
-            let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            _ = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
-            let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            _ = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
             _ = confirmPassTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             // create the user
