@@ -75,7 +75,6 @@ class DatabaseHelper {
     }
     
     func updateItem(desc1: String, place1: String, postImg1: Data) {
-        
         guard  let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         

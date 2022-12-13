@@ -17,21 +17,21 @@ class HomeViewController: UIViewController {
     var delegate: DataPass!
     @IBOutlet var tableView: UITableView!
     
-//    struct Data {
-//        let imgName: String
-//        let name: String
-//        let place: String
-//        let postImg: String
-//        var description: String
-//    }
-//    
-//    let data: [Data] = [
-//        Data(imgName: "img1", name: "Prisha Mclaughlin", place: "Ahmedabad", postImg: "img2", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
-//        
-//        Data(imgName: "img3", name: "Prisha Mclaughlin", place: "Ahmedabad", postImg: "img4", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
-//        
-//        Data(imgName: "img5", name: "Prisha Mclaughlin", place: "Ahmedabad", postImg: "img6", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
-//    ]
+    //    struct Data {
+    //        let imgName: String
+    //        let name: String
+    //        let place: String
+    //        let postImg: String
+    //        var description: String
+    //    }
+    //
+    //    let data: [Data] = [
+    //        Data(imgName: "img1", name: "Prisha Mclaughlin", place: "Ahmedabad", postImg: "img2", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
+    //
+    //        Data(imgName: "img3", name: "Prisha Mclaughlin", place: "Ahmedabad", postImg: "img4", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
+    //
+    //        Data(imgName: "img5", name: "Prisha Mclaughlin", place: "Ahmedabad", postImg: "img6", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
+    //    ]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,7 +41,7 @@ class HomeViewController: UIViewController {
         configureItems()
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-      //  fetchData()
+        //  fetchData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,14 +99,14 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let Data1 = data[indexPath.row]
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
-//        cell.profileImg.image = UIImage(named: Data1.imgName)
-//        cell.nameLbl.text = Data1.name
-//        cell.placeLbl.text = Data1.place
-//        cell.postImg.image = UIImage(named: Data1.postImg)
-//        cell.descriptionTextView.text = Data1.description
-//        return cell
+        //        let Data1 = data[indexPath.row]
+        //        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
+        //        cell.profileImg.image = UIImage(named: Data1.imgName)
+        //        cell.nameLbl.text = Data1.name
+        //        cell.placeLbl.text = Data1.place
+        //        cell.postImg.image = UIImage(named: Data1.postImg)
+        //        cell.descriptionTextView.text = Data1.description
+        //        return cell
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
         let row = images[indexPath.row]
@@ -122,8 +122,8 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "detailViewSegue") as? DetailViewController
-        navigationController?.pushViewController(vc!, animated: true)
+        let vc1 = storyboard?.instantiateViewController(withIdentifier: "detailViewSegue") as? DetailViewController
+        navigationController?.pushViewController(vc1!, animated: true)
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -132,22 +132,21 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let edit = UIContextualAction(style: .normal, title: "Edit") { (_, _, _) in
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "addPostSegue") as? PostViewController
+            let row = self.images[indexPath.row]
+            DatabaseHelper.shareInstance.updateItem(desc1: row.desc!, place1: row.place!, postImg1: row.postImg!)
             self.navigationController?.pushViewController(vc!, animated: true)
         }
         
-        let swipeConfiguration = UISwipeActionsConfiguration(actions: [edit])
-        return swipeConfiguration
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let row = images[indexPath.row]
-            images.remove(at: indexPath.row)
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
+            let row = self.images[indexPath.row]
+            self.images.remove(at: indexPath.row)
             DatabaseHelper.shareInstance.deleteData(place: row.place!)
             self.tableView.reloadData()
         }
-        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [delete, edit])
+        return swipeConfiguration
     }
+    
 }
 
 

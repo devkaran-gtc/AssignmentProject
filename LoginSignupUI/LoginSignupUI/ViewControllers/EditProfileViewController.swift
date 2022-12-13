@@ -57,12 +57,20 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     
     @IBAction func saveBtnTapped(_ sender: Any) {
-                if let vc3 = storyboard?.instantiateViewController(withIdentifier: "profile") as? ProfileViewController {
-                    vc3.profilenameLbl = nameTextField.text!
-                    vc3.profileImg = profileImage.image!
-                    vc3.about = aboutTxtView.text
-                    navigationController?.pushViewController(vc3, animated: true)
-                }
+//                if let vc3 = storyboard?.instantiateViewController(withIdentifier: "profile") as? ProfileViewController {
+//                    vc3.profilenameLbl = nameTextField.text!
+//                    vc3.profileImg = profileImage.image!
+//                    vc3.about = aboutTxtView.text
+//                    navigationController?.pushViewController(vc3, animated: true)
+//                }
+        
+        let placeLbl = nameTextField.text ?? ""
+        let desc = aboutTxtView.text ?? ""
+        
+        if let imageData = profileImage.image?.jpegData(compressionQuality: 1) {
+            
+        }
+        _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func backBtnTapped(_ sender: Any) {

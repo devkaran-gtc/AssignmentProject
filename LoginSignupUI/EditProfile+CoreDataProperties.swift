@@ -2,13 +2,12 @@
 //  EditProfile+CoreDataProperties.swift
 //  LoginSignupUI
 //
-//  Created by GTCSYS' Mac mini on 12/12/22.
+//  Created by GTCSYS' Mac mini on 12/13/22.
 //
 //
 
 import Foundation
 import CoreData
-
 
 extension EditProfile {
 
@@ -16,9 +15,9 @@ extension EditProfile {
         return NSFetchRequest<EditProfile>(entityName: "EditProfile")
     }
 
+    @NSManaged public var about: String?
     @NSManaged public var name: String?
     @NSManaged public var profileImg: Data?
-    @NSManaged public var about: String?
 
 }
 
