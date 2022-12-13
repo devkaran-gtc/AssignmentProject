@@ -1,15 +1,15 @@
 //
 //  PostItem+CoreDataClass.swift
-//  
+//  LoginSignupUI
 //
-//  Created by GTCSYS' Mac mini on 12/12/22.
+//  Created by Devkaran's Mac mini on 13/12/22.
 //
 //
 
 import Foundation
 import CoreData
 
-@objc(PostItem)
+
 public class PostItem: NSManagedObject {
 
 }

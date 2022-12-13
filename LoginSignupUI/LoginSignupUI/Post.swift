@@ -21,9 +21,9 @@ class Post {
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let imageInstance = PostItem(context: managedContext)
-        imageInstance.about = about
-        imageInstance.name = name
-        imageInstance.profileImg = profileImg
+//        imageInstance.about = about
+//        imageInstance.name = name
+//        imageInstance.profileImg = profileImg
        
         do {
             print("saved.")

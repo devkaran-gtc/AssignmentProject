@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="EditProfile" representedClassName="EditProfile" syncable="YES" codeGenerationType="class">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="EditProfile" representedClassName=".EditProfile" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="profileImg" optional="YES" attributeType="Binary"/>
     </entity>
-    <entity name="PostItem" representedClassName="PostItem" syncable="YES">
+    <entity name="PostItem" representedClassName=".PostItem" syncable="YES">
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="place" optional="YES" attributeType="String"/>
         <attribute name="postImg" optional="YES" attributeType="Binary"/>
     </entity>
-    <elements>
-        <element name="EditProfile" positionX="-54" positionY="18" width="128" height="88"/>
-        <element name="PostItem" positionX="-63" positionY="-18" width="128" height="88"/>
-    </elements>
 </model>
