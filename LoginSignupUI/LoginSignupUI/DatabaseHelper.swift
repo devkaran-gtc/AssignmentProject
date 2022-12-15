@@ -74,21 +74,33 @@ class DatabaseHelper {
         }
     }
     
-    func updateItem(desc1: String, place1: String, postImg1: Data) {
-        guard  let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let imageInstance = PostItem(context: managedContext)
-        imageInstance.desc = desc1
-        imageInstance.place = place1
-        imageInstance.postImg = postImg1
-       
+    func updateItem(desc1: String, place1: String, postImg1: Data) -> Bool {
+        var success = false
+         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return success }
+         let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "PostItem")
+         fetchRequest.predicate = NSPredicate(format: "place = %@", place1)
+
         do {
-            print("update.")
-            try managedContext.save()
-        } catch let error as NSError {
-            print("could not update. \(error), \(error.userInfo)")
+            let test = try managedContext.fetch(fetchRequest)
+            if test.count != 0 {
+                // update
+                let managedObject = test[0] as! NSManagedObject
+                managedObject.setValue(String(), forKey: "place")
+                managedObject.setValue(String(), forKey: "desc")
+                managedObject.setValue(Data(), forKey: "postImg")
+                appDelegate.saveContext() // look in AppDelegate.swift for this function
+                success = true
+            } else {
+                let imageInstance = PostItem(context: managedContext)
+                imageInstance.desc = desc1
+                imageInstance.place = place1
+                imageInstance.postImg = postImg1
+            }
+        } catch {
+            print(error)
         }
+        return success
     }
 }
     

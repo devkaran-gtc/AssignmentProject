@@ -44,6 +44,7 @@ class ProfileViewController: UIViewController {
     
     @IBAction func editBtnTapped(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "EditProfileViewController") as? EditProfileViewController
+        vc?.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(vc!, animated: true)
     }
     @IBAction func backBtnTapped(_ sender: Any) {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UINavigationControllerDelegate {
     
@@ -57,20 +58,23 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     
     @IBAction func saveBtnTapped(_ sender: Any) {
-//                if let vc3 = storyboard?.instantiateViewController(withIdentifier: "profile") as? ProfileViewController {
-//                    vc3.profilenameLbl = nameTextField.text!
-//                    vc3.profileImg = profileImage.image!
-//                    vc3.about = aboutTxtView.text
-//                    navigationController?.pushViewController(vc3, animated: true)
-//                }
-        
-        let nameLbl = nameTextField.text ?? ""
-        let about = aboutTxtView.text ?? ""
-        
-        if let imagedata = profileImage.image?.jpegData(compressionQuality: 1) {
-            Post.shareInstance.saveData(about: about, name: nameLbl, profileImg: imagedata)
+        if let vc3 = storyboard?.instantiateViewController(withIdentifier: "profile") as? ProfileViewController {
+            vc3.profilenameLbl = nameTextField.text!
+            vc3.profileImg = profileImage.image!
+            vc3.about = aboutTxtView.text
+            if let imageData = profileImage.image?.jpegData(compressionQuality: 1) {
+            Post.shareInstance.saveData(about: aboutTxtView.text!, name: nameTextField.text!, profileImg: imageData)
+            }
+            navigationController?.pushViewController(vc3, animated: true)
         }
-        _ = navigationController?.popViewController(animated: true)
+        
+//        let nameLbl = nameTextField.text ?? ""
+//        let about = aboutTxtView.text ?? ""
+//
+//        if let imagedata = profileImage.image?.jpegData(compressionQuality: 1) {
+//            Post.shareInstance.saveData(about: about, name: nameLbl, profileImg: imagedata)
+//        }
+//        _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func backBtnTapped(_ sender: Any) {

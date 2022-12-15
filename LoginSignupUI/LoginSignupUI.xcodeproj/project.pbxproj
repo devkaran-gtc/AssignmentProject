@@ -149,8 +149,8 @@
 			children = (
 				664BDDEE2935DB1A00F173EA /* ViewController.swift */,
 				6603A95829376C7D00D7EB70 /* HomeViewController.swift */,
-				6603A95429374F5F00D7EB70 /* ForgotPasswordVC.swift */,
 				6603A95B293789B200D7EB70 /* HomeTableViewCell.swift */,
+				6603A95429374F5F00D7EB70 /* ForgotPasswordVC.swift */,
 				664BDDFF2935EFE500F173EA /* LoginTableViewController.swift */,
 				664C178A29386D020034E4FB /* PostViewController.swift */,
 				66294AC02938B42D008247D3 /* DetailViewController.swift */,
