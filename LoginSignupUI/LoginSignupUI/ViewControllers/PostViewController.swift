@@ -64,6 +64,82 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPop
             DatabaseHelper.shareInstance.save(desc: desc, place: placeLbl, postImg: imageData)
         }
         _ = navigationController?.popViewController(animated: true)
+        
+        self.setUpPostMethod()
     }
 }
 
+extension PostViewController {
+    func setUpPostMethod() {
+        guard let place = self.placeTextField.text else { return }
+        let post = "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+        guard let desc = self.descriptionTxtView.text else { return }
+        
+        if let url = URL(string: "http://192.168.1.34:3000/posts"){
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            
+            let parameters: [String: String] = [
+                "place": place,
+                "description": desc,
+                "imageurl": post
+            ]
+            
+            request.httpBody = parameters.percentEscaped().data(using: .utf8)
+            
+            URLSession.shared.dataTask(with: request) { (data, response, error) in
+                guard let data = data else {
+                    if error == nil{
+                        print(error?.localizedDescription ?? "Unknown Error")
+                    }
+                    return
+                }
+                
+                if let response = response as? HTTPURLResponse{
+                    guard (200 ... 299) ~= response.statusCode else {
+                        print("Status code :- \(response.statusCode)")
+                        print(response)
+                        return
+                    }
+                }
+                
+                do{
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                }catch let error{
+                    print(error.localizedDescription)
+                }
+            }.resume()
+        }
+    }
+}
+
+
+extension Dictionary {
+    func percentEscaped() -> String {
+        return map { (key, value) in
+            let escapedKey = "\(key)".addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowed) ?? ""
+            let escapedValue = "\(value)".addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowed) ?? ""
+            return escapedKey + "=" + escapedValue
+        }
+        .joined(separator: "&")
+    }
+}
+
+extension CharacterSet {
+    static let urlQueryValueAllowed: CharacterSet = {
+        let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
+        let subDelimitersToEncode = "!$&'()*+,;="
+
+        var allowed = CharacterSet.urlQueryAllowed
+        allowed.remove(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")
+        return allowed
+    }()
+}
+
+//extension UIImage {
+//    func toPngString() -> String? {
+//        let data = self.pngData()
+//        return data?.base64EncodedString(options: .endLineWithLineFeed)
+//    }
+//}

@@ -86,9 +86,9 @@ class DatabaseHelper {
             if test.count != 0 {
                 // update
                 let managedObject = test[0] as! NSManagedObject
-                managedObject.setValue(String(), forKey: "place")
-                managedObject.setValue(String(), forKey: "desc")
-                managedObject.setValue(Data(), forKey: "postImg")
+                managedObject.setValue(place1, forKey: "place")
+                managedObject.setValue(desc1, forKey: "desc")
+                managedObject.setValue(postImg1, forKey: "postImg")
                 appDelegate.saveContext() // look in AppDelegate.swift for this function
                 success = true
             } else {

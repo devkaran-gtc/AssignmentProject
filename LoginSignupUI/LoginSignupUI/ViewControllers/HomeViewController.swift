@@ -8,13 +8,10 @@
 import UIKit
 import CoreData
 
-protocol DataPass {
-    func post(object:[String:String])
-}
 class HomeViewController: UIViewController {
     
+    var addPost = [AddPost]()
     var images = [PostItem]()
-    var delegate: DataPass!
     @IBOutlet var tableView: UITableView!
     
     //    struct Data {
@@ -41,17 +38,21 @@ class HomeViewController: UIViewController {
         configureItems()
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        //  fetchData()
+       
+        downloadJSON {
+            self.tableView.reloadData()
+            print("Success")
+        }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        loaddata()
-        tableView.reloadData()
-    }
-    
-    func loaddata() {
-        images = DatabaseHelper.shareInstance.fetchImage()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        loaddata()
+//        tableView.reloadData()
+//    }
+//
+//    func loaddata() {
+//       // images = DatabaseHelper.shareInstance.fetchImage()
+//    }
     
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
@@ -60,21 +61,10 @@ class HomeViewController: UIViewController {
     
     private func configureItems() {
         
-        //        let button = UIButton(type: .system)
-        //        button.setImage(UIImage(systemName: "camera"), for: .normal)
-        //        button.setTitle("Timeline", for: .normal)
-        //        button.sizeToFit()
-        //        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
-        
-        //        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "camera"),
-        //                                                            style: .done,
-        //                                                            target: self,
-        //                                                            action: nil)
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"),
-                                                            style: .done,
-                                                            target: self,
-                                                            action: nil)
+    navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"),
+                                                        style: .done,
+                                                        target: self,
+                                                        action: nil)
     }
     
     
@@ -91,7 +81,7 @@ extension HomeViewController: UITableViewDelegate {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        images.count
+        addPost.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -108,17 +98,34 @@ extension HomeViewController: UITableViewDataSource {
         //        cell.descriptionTextView.text = Data1.description
         //        return cell
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
-        let row = images[indexPath.row]
-        cell.descriptionTextView.text = row.desc
-        cell.placeLbl.text = row.place
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
+//        let row = images[indexPath.row]
+//        cell.descriptionTextView.text = row.desc
+//        cell.placeLbl.text = row.place
+//
+//        if let dataa = row.postImg {
+//            cell.postImgView.image = UIImage(data: dataa)
+//        } else {
+//            cell.postImgView.image = nil
+//        }
+//        return cell
         
-        if let dataa = row.postImg {
-            cell.postImgView.image = UIImage(data: dataa)
-        } else {
-            cell.postImgView.image = nil
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
+      
+        let row = addPost[indexPath.row]
+        cell.placeLbl?.text = row.place
+        cell.descriptionTextView?.text = row.description
+        let imgUrl = row.imageurl
+        let url = URL(string: imgUrl)
+        let data = try? Data(contentsOf: url!)
+        if let imageData = data {
+                let image = UIImage(data: imageData)
+            cell.postImgView.image = image
+            }else {
+                cell.postImgView.image = nil
+            }
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -128,24 +135,42 @@ extension HomeViewController: UITableViewDataSource {
         return true
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let edit = UIContextualAction(style: .normal, title: "Edit") { (_, _, _) in
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "addPostSegue") as? PostViewController
-            let row = self.images[indexPath.row]
-            DatabaseHelper.shareInstance.updateItem(desc1: row.desc!, place1: row.place!, postImg1: row.postImg!)
-            self.navigationController?.pushViewController(vc!, animated: true)
-        }
-        
-        let delete = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
-            let row = self.images[indexPath.row]
-            self.images.remove(at: indexPath.row)
-            DatabaseHelper.shareInstance.deleteData(place: row.place!)
-            self.tableView.reloadData()
-        }
-        let swipeConfiguration = UISwipeActionsConfiguration(actions: [delete, edit])
-        return swipeConfiguration
+//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        let edit = UIContextualAction(style: .normal, title: "Edit") { (_, _, _) in
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "addPostSegue") as? PostViewController
+//        let row = self.images[indexPath.row]
+//        DatabaseHelper.shareInstance.updateItem(desc1: row.desc!, place1: row.place!, postImg1: row.postImg!)
+//        self.navigationController?.pushViewController(vc!, animated: true)
+//        }
+//
+//        let delete = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
+//            let row = self.images[indexPath.row]
+//            self.images.remove(at: indexPath.row)
+//            DatabaseHelper.shareInstance.deleteData(place: row.place!)
+//            self.tableView.reloadData()
+//        }
+//        let swipeConfiguration = UISwipeActionsConfiguration(actions: [delete, edit])
+//        return swipeConfiguration
+//    }
+    
+    func downloadJSON(completed: @escaping () -> ()) {
+        let url = URL(string: "http://192.168.1.34:3000/posts")
+        URLSession.shared.dataTask(with: url!) { (data, response, err) in
+            
+            if err == nil {
+                do {
+                    self.addPost = try JSONDecoder().decode([AddPost].self, from: data!)
+                    DispatchQueue.main.async {
+                        completed()
+                    }
+                } catch {
+                    print("error fatching ")
+                }
+               
+               
+            }
+        }.resume()
     }
     
 }
-
 
