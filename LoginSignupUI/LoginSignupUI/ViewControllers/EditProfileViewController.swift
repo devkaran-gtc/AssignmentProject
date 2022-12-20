@@ -13,6 +13,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     var picker1:UIImagePickerController? = UIImagePickerController()
     
     @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var emailLbl: UITextField!
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var aboutTxtView: UITextView!
     
@@ -66,6 +67,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             Post.shareInstance.saveData(about: aboutTxtView.text!, name: nameTextField.text!, profileImg: imageData)
             }
             navigationController?.pushViewController(vc3, animated: true)
+            setUpPutMethod()
         }
         
 //        let nameLbl = nameTextField.text ?? ""
@@ -84,6 +86,51 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         self.present(mainTabBarController, animated: true, completion: nil)
     }
-   
+    
+    func setUpPutMethod() {
+        guard let name = self.nameTextField.text else { return }
+        guard let email = self.emailLbl.text else { return }
+        let profile = "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+        guard let about = self.aboutTxtView.text else { return }
+        
+        if let url = URL(string: "http://192.168.1.34:3000/profile"){
+            var request = URLRequest(url: url)
+            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") 
+            request.httpMethod = "PUT"
+            
+            let parameters: [String: String] = [
+                "full_name": name,
+                "email": email,
+                "imageurl": profile,
+                "about_me": about
+            ]
+            
+            request.httpBody = parameters.percentEscaped().data(using: .utf8)
+            
+            URLSession.shared.dataTask(with: request) { (data, response, error) in
+                guard let data = data else {
+                    if error == nil{
+                        print(error?.localizedDescription ?? "Unknown Error")
+                    }
+                    return
+                }
+                
+                if let response = response as? HTTPURLResponse{
+                    guard (200 ... 299) ~= response.statusCode else {
+                        print("Status code :- \(response.statusCode)")
+                        print(response)
+                        return
+                    }
+                }
+                
+                do{
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                }catch let error{
+                    print(error.localizedDescription)
+                }
+            }.resume()
+        }
+    }
 }
 

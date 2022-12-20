@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct Profile: Decodable {
+struct Profile: Codable {
     let full_name: String
     let email: String
     let imageurl: String
+    let about_me: String
 }

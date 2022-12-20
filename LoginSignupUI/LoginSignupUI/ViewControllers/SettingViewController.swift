@@ -25,32 +25,35 @@ class SettingViewController: UIViewController {
   //  var diameter: CGFloat = 30.0
     override func viewDidLoad() {
         
-        downloadJSON {
-            print("Success")
-        }
         super.viewDidLoad()
         badge1?.layer.masksToBounds = true
         badge2?.layer.masksToBounds = true
         badge3?.layer.masksToBounds = true
         badge4?.layer.masksToBounds = true
+        profileImage1.layer.masksToBounds = true
 
         badge1.layer.cornerRadius = badge1.frame.size.width / 2
         badge2.layer.cornerRadius = badge2.frame.size.width / 2
         badge3.layer.cornerRadius = badge3.frame.size.width / 2
         badge4.layer.cornerRadius = badge4.frame.size.width / 2
-        
-        profileName?.text = profile?.full_name
-        email?.text = profile?.email
-        let imageurl = profile?.imageurl
-        let url = URL(string: imageurl!)
-        let data = try? Data(contentsOf: url!)
-        if let imageData = data {
+        profileImage1.layer.cornerRadius = profileImage1.frame.size.width / 2
+    
+        downloadJSON {
+            self.profileName?.text = self.profile?.full_name
+            self.email?.text = self.profile?.email
+            let imageurl = self.profile?.imageurl
+            let url = URL(string: imageurl!)
+            let data = try? Data(contentsOf: url!)
+            if let imageData = data {
                 let image = UIImage(data: imageData)
-                profileImage1.image = image
+                self.profileImage1.image = image
             }else {
-                profileImage1.image = nil
+                self.profileImage1.image = nil
             }
+            print("Success")
         }
+        
+    }
         
     @IBAction func logOutBtnTapped(_ sender: UIButton) {
         let homeVC = storyboard?.instantiateViewController(identifier: "LoginTableViewController") as? LoginTableViewController
@@ -69,7 +72,7 @@ class SettingViewController: UIViewController {
                         completed()
                     }
                 } catch {
-                    print("error fatching ")
+                    print("error fatching \(error)")
                 }
 
 

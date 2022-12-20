@@ -18,6 +18,7 @@ enum FollowStatus: Togglable {
         switch self {
             case .follow:
                 self = .unfollow
+            
             case .unfollow:
                 self = .follow
         }

@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
     var profileImg = UIImage()
     var profilenameLbl = ""
     var about = ""
+    var profile: Profile?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,21 @@ class ProfileViewController: UIViewController {
         aboutLbl.text = about
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        downloadJSON {
+            self.profileName?.text = self.profile?.full_name
+            self.aboutLbl?.text = self.profile?.about_me
+            let imageurl = self.profile?.imageurl
+            let url = URL(string: imageurl!)
+            let data = try? Data(contentsOf: url!)
+            if let imageData = data {
+                let image = UIImage(data: imageData)
+                self.profileImgView.image = image
+            }else {
+                self.profileImgView.image = nil
+            }
+            print("Success")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,5 +69,24 @@ class ProfileViewController: UIViewController {
         VC1.modalPresentationStyle = .fullScreen
         
         self.present(VC1, animated: true, completion: nil)
+    }
+    
+    func downloadJSON(completed: @escaping () -> ()) {
+        let url = URL(string: "http://192.168.1.34:3000/profile")
+        URLSession.shared.dataTask(with: url!) { (data, response, err) in
+
+            if err == nil {
+                do {
+                    self.profile = try JSONDecoder().decode(Profile.self, from: data!)
+                    DispatchQueue.main.async {
+                        completed()
+                    }
+                } catch {
+                    print("error fatching \(error)")
+                }
+
+
+            }
+        }.resume()
     }
 }
