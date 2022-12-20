@@ -30,15 +30,15 @@ class FollowerTableViewCell: UITableViewCell {
         
         followStatus.toggle()
         if followStatus == .unfollow{
+            // put change following : true == 1
             followBtn?.setTitle("Following",for: .normal)
             followBtn?.setTitleColor( .black, for: .normal )
             followBtn?.backgroundColor = .white
             followBtn?.layer.borderColor = CGColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1)
             followBtn?.layer.borderWidth = 1
-            
-            
         }
         else {
+            // put change following : false == 0
             followBtn?.setTitle("Follow",for: .normal)
             followBtn?.setTitleColor(.white, for: .normal)
             followBtn?.backgroundColor = UIColor(red: 77/255, green: 217/255, blue: 105/255, alpha: 1)
