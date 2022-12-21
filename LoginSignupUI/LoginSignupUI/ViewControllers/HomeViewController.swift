@@ -129,7 +129,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+       
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -154,7 +154,7 @@ extension HomeViewController: UITableViewDataSource {
 //    }
     
     func downloadJSON(completed: @escaping () -> ()) {
-        let url = URL(string: "http://192.168.1.34:3000/posts")
+        let url = URL(string: "http://192.168.1.71:3000/posts")
         URLSession.shared.dataTask(with: url!) { (data, response, err) in
             
             if err == nil {

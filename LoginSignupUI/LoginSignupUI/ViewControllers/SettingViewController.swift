@@ -20,6 +20,7 @@ class SettingViewController: UIViewController {
     @IBOutlet var profileImage1: UIImageView!
     @IBOutlet var profileName: UILabel!
     @IBOutlet var email: UILabel!
+    @IBOutlet var view1: UIView!
     
     var profile: Profile?
   //  var diameter: CGFloat = 30.0
@@ -53,8 +54,18 @@ class SettingViewController: UIViewController {
             print("Success")
         }
         
+        self.view1.addGestureRecognizer(gesture)
     }
         
+    let gesture = UITapGestureRecognizer(target: self, action: #selector(navigate))
+    
+
+    @objc func navigate(_ sender:UITapGestureRecognizer){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "profile") as? ProfileViewController
+        vc?.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(vc!, animated: true)
+    }
+    
     @IBAction func logOutBtnTapped(_ sender: UIButton) {
         let homeVC = storyboard?.instantiateViewController(identifier: "LoginTableViewController") as? LoginTableViewController
         view.window?.rootViewController = homeVC
@@ -62,7 +73,7 @@ class SettingViewController: UIViewController {
     }
     
     func downloadJSON(completed: @escaping () -> ()) {
-        let url = URL(string: "http://192.168.1.34:3000/profile")
+        let url = URL(string: "http://192.168.1.71:3000/profile")
         URLSession.shared.dataTask(with: url!) { (data, response, err) in
 
             if err == nil {

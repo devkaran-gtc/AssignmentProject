@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UINavigationControllerDelegate {
+class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UINavigationControllerDelegate, UITextViewDelegate {
     
     var picker:UIImagePickerController?=UIImagePickerController()
     var indexRow = Int()
@@ -23,7 +23,47 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPop
         view.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+    
+        let backImage = UIImage(named: "ic_back")
+        let menuBtn = UIButton(type: .custom)
+        menuBtn.setImage(backImage, for: .normal)
+        menuBtn.addTarget(self, action: #selector(backButtonClick(sender:)), for: .touchUpInside)
+        let menuBarItem = UIBarButtonItem(customView: menuBtn)
+        menuBarItem.customView?.translatesAutoresizingMaskIntoConstraints = false
+        menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 46).isActive = true
+        menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 46).isActive = true
+        self.navigationItem.leftBarButtonItem = menuBarItem
+        
+        descriptionTxtView.delegate = self
+        descriptionTxtView.text = "Description"
+        descriptionTxtView.textColor = UIColor.lightGray
+        descriptionTxtView.layer.cornerRadius = 7
+        descriptionTxtView.layer.borderWidth = 0.3
+        descriptionTxtView.layer.borderColor = #colorLiteral(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1)
     }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if descriptionTxtView.textColor == UIColor.lightGray {
+            descriptionTxtView.text = ""
+            descriptionTxtView.textColor = .black
+            descriptionTxtView.layer.borderWidth = 1
+            descriptionTxtView.layer.borderColor = #colorLiteral(red: 0.3019607843, green: 0.8509803922, blue: 0.4117647059, alpha: 1)
+            
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if descriptionTxtView.text == "" {
+            descriptionTxtView.text = "Description"
+            descriptionTxtView.textColor = #colorLiteral(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1)
+            descriptionTxtView.layer.borderColor = #colorLiteral(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1)
+        }
+        
+    }
+    
+    @objc func backButtonClick(sender : UIButton) {
+            self.navigationController?.popViewController(animated: true);
+        }
     
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
@@ -75,7 +115,7 @@ extension PostViewController {
         let post = "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
         guard let desc = self.descriptionTxtView.text else { return }
         
-        if let url = URL(string: "http://192.168.1.34:3000/posts"){
+        if let url = URL(string: "http://192.168.1.71:3000/posts"){
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
             

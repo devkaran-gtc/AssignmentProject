@@ -61,7 +61,7 @@ extension FollowerViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func downloadJSON(completed: @escaping () -> ()) {
-        let url = URL(string: "http://192.168.1.34:3000/followers")
+        let url = URL(string: "http://192.168.1.71:3000/followers")
         URLSession.shared.dataTask(with: url!) { (data, response, err) in
             
             if err == nil {
@@ -78,4 +78,46 @@ extension FollowerViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }.resume()
     }
+    
+//    func setUpPutMethod() {
+//        guard let name = self.nameTextField.text else { return }
+//
+//        if let url = URL(string: "http://192.168.1.71:3000/followers"){
+//            var request = URLRequest(url: url)
+//            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+//            request.httpMethod = "PUT"
+//
+//            let parameters: [String: String] = [
+//                "full_name": name
+//            ]
+//
+//            request.httpBody = parameters.percentEscaped().data(using: .utf8)
+//
+//            URLSession.shared.dataTask(with: request) { (data, response, error) in
+//                guard let data = data else {
+//                    if error == nil{
+//                        print(error?.localizedDescription ?? "Unknown Error")
+//                    }
+//                    return
+//                }
+//
+//                if let response = response as? HTTPURLResponse{
+//                    guard (200 ... 299) ~= response.statusCode else {
+//                        print("Status code :- \(response.statusCode)")
+//                        print(response)
+//                        return
+//                    }
+//                }
+//
+//                do{
+//                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+//                    print(json)
+//                }catch let error{
+//                    print(error.localizedDescription)
+//                }
+//            }.resume()
+//        }
+//    }
+    
 }
+

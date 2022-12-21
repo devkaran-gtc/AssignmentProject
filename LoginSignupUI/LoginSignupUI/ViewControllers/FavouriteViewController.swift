@@ -61,7 +61,7 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func downloadJSON(completed: @escaping () -> ()) {
-        let url = URL(string: "http://192.168.1.34:3000/likes")
+        let url = URL(string: "http://192.168.1.71:3000/likes")
         URLSession.shared.dataTask(with: url!) { (data, response, err) in
             
             if err == nil {

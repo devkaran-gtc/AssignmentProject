@@ -13,6 +13,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet var profileImgView: UIImageView!
     @IBOutlet var profileName: UILabel!
     @IBOutlet var aboutLbl: UILabel!
+    @IBOutlet var view1: UIView!
+    @IBOutlet var view2: UIView!
+    @IBOutlet var view3: UIView!
+    
     
     var profileImg = UIImage()
     var profilenameLbl = ""
@@ -21,7 +25,24 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        view1.layer.masksToBounds = true
+        view2.layer.masksToBounds = true
+        view3.layer.masksToBounds = true
+
+        view1.layer.cornerRadius = 7
+        view1.layer.borderWidth = 0.3
+        view1.layer.borderColor = #colorLiteral(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1)
+        view2.layer.cornerRadius = 7
+        view2.layer.borderWidth = 0.3
+        view2.layer.borderColor = #colorLiteral(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1)
+        view3.layer.cornerRadius = 7
+        view3.layer.borderWidth = 0.3
+        view3.layer.borderColor = #colorLiteral(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1)
+        
+        profileImgView.layer.masksToBounds = true
+        profileImgView.layer.cornerRadius = profileImgView.frame.size.width / 2
+        
         profileImgView.image = profileImg
         profileName.text = profilenameLbl
         aboutLbl.text = about
@@ -42,7 +63,21 @@ class ProfileViewController: UIViewController {
             }
             print("Success")
         }
+    
+        let backImage = UIImage(named: "ic_back")
+        let menuBtn = UIButton(type: .custom)
+        menuBtn.setImage(backImage, for: .normal)
+        menuBtn.addTarget(self, action: #selector(backButtonClick(sender:)), for: .touchUpInside)
+        let menuBarItem = UIBarButtonItem(customView: menuBtn)
+        menuBarItem.customView?.translatesAutoresizingMaskIntoConstraints = false
+        menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 46).isActive = true
+        menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 46).isActive = true
+        self.navigationItem.leftBarButtonItem = menuBarItem
     }
+    
+    @objc func backButtonClick(sender : UIButton) {
+            self.navigationController?.popViewController(animated: true);
+        }
     
     override func viewWillAppear(_ animated: Bool) {
         loadData()
@@ -63,6 +98,7 @@ class ProfileViewController: UIViewController {
         vc?.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(vc!, animated: true)
     }
+    
     @IBAction func backBtnTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let VC1 = storyboard.instantiateViewController(identifier: "SettingViewController")
@@ -72,7 +108,7 @@ class ProfileViewController: UIViewController {
     }
     
     func downloadJSON(completed: @escaping () -> ()) {
-        let url = URL(string: "http://192.168.1.34:3000/profile")
+        let url = URL(string: "http://192.168.1.71:3000/profile")
         URLSession.shared.dataTask(with: url!) { (data, response, err) in
 
             if err == nil {
