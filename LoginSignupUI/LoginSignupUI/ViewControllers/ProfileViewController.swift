@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet var profileImgView: UIImageView!
     @IBOutlet var profileName: UILabel!
     @IBOutlet var aboutLbl: UILabel!
+    @IBOutlet var msgView: UIView!
     @IBOutlet var view1: UIView!
     @IBOutlet var view2: UIView!
     @IBOutlet var view3: UIView!
@@ -31,17 +32,24 @@ class ProfileViewController: UIViewController {
         view3.layer.masksToBounds = true
 
         view1.layer.cornerRadius = 7
-        view1.layer.borderWidth = 0.3
-        view1.layer.borderColor = #colorLiteral(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1)
+        view1.layer.borderWidth = 1
+        view1.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
         view2.layer.cornerRadius = 7
-        view2.layer.borderWidth = 0.3
-        view2.layer.borderColor = #colorLiteral(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1)
+        view2.layer.borderWidth = 1
+        view2.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
         view3.layer.cornerRadius = 7
-        view3.layer.borderWidth = 0.3
-        view3.layer.borderColor = #colorLiteral(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1)
+        view3.layer.borderWidth = 1
+        view3.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
         
         profileImgView.layer.masksToBounds = true
         profileImgView.layer.cornerRadius = profileImgView.frame.size.width / 2
+        profileImgView.layer.borderWidth = 1
+        profileImgView.layer.borderColor = #colorLiteral(red: 0.3019607843, green: 0.8509803922, blue: 0.4117647059, alpha: 1)
+        
+        msgView.layer.masksToBounds = true
+        msgView.layer.cornerRadius = 18
+        msgView.layer.borderWidth = 1
+        msgView.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
         
         profileImgView.image = profileImg
         profileName.text = profilenameLbl

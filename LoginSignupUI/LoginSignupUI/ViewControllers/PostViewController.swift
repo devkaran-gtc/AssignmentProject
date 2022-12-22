@@ -15,6 +15,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPop
 
     @IBOutlet var placeTextField: UITextField!
     @IBOutlet var postImage: UIImageView!
+    @IBOutlet var imgBtn: UIButton!
     @IBOutlet var descriptionTxtView: UITextView!
     
     override func viewDidLoad() {
@@ -38,8 +39,13 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPop
         descriptionTxtView.text = "Description"
         descriptionTxtView.textColor = UIColor.lightGray
         descriptionTxtView.layer.cornerRadius = 7
-        descriptionTxtView.layer.borderWidth = 0.3
-        descriptionTxtView.layer.borderColor = #colorLiteral(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1)
+        descriptionTxtView.layer.borderWidth = 1
+        descriptionTxtView.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        
+        imgBtn.layer.masksToBounds = true
+        imgBtn.layer.cornerRadius = 15
+        imgBtn.layer.borderWidth = 1
+        imgBtn.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -56,7 +62,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPop
         if descriptionTxtView.text == "" {
             descriptionTxtView.text = "Description"
             descriptionTxtView.textColor = #colorLiteral(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1)
-            descriptionTxtView.layer.borderColor = #colorLiteral(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1)
+            descriptionTxtView.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
         }
         
     }

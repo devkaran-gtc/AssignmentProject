@@ -23,7 +23,10 @@ class HomeTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+        followingBtn.layer.masksToBounds = true
+        followingBtn.layer.cornerRadius = 15
+        followingBtn.layer.borderWidth = 1
+        followingBtn.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
         
     }
 //    func prepare(for segue: UIStoryboardSegue, sender: Any?) {

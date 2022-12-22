@@ -41,13 +41,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         aboutTxtView.text = "About me"
         aboutTxtView.textColor = UIColor.lightGray
         aboutTxtView.layer.cornerRadius = 7
-        aboutTxtView.layer.borderWidth = 0.3
-        aboutTxtView.layer.borderColor = #colorLiteral(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1)
+        aboutTxtView.layer.borderWidth = 1
+        aboutTxtView.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
         
         addImageBtn.layer.masksToBounds = true
-        addImageBtn.layer.cornerRadius = 12
-        addImageBtn.layer.borderWidth = 0.3
-        addImageBtn.layer.borderColor = #colorLiteral(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1)
+        addImageBtn.layer.cornerRadius = 15
+        addImageBtn.layer.borderWidth = 1
+        addImageBtn.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
         
     }
     

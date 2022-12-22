@@ -21,23 +21,47 @@ class SettingViewController: UIViewController {
     @IBOutlet var profileName: UILabel!
     @IBOutlet var email: UILabel!
     @IBOutlet var view1: UIView!
+    @IBOutlet var view2: UIView!
+    @IBOutlet var view3: UIView!
+    @IBOutlet var view4: UIView!
+    @IBOutlet var logOutBtn: UIButton!
     
     var profile: Profile?
   //  var diameter: CGFloat = 30.0
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        view2.layer.masksToBounds = true
+        view3.layer.masksToBounds = true
+        view4.layer.masksToBounds = true
+
+        view2.layer.cornerRadius = 7
+        view2.layer.borderWidth = 1
+        view2.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        view3.layer.cornerRadius = 7
+        view3.layer.borderWidth = 1
+        view3.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        view4.layer.cornerRadius = 7
+        view4.layer.borderWidth = 1
+        view4.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        
         badge1?.layer.masksToBounds = true
         badge2?.layer.masksToBounds = true
         badge3?.layer.masksToBounds = true
         badge4?.layer.masksToBounds = true
         profileImage1.layer.masksToBounds = true
-
+        logOutBtn.layer.masksToBounds = true
+        
         badge1.layer.cornerRadius = badge1.frame.size.width / 2
         badge2.layer.cornerRadius = badge2.frame.size.width / 2
         badge3.layer.cornerRadius = badge3.frame.size.width / 2
         badge4.layer.cornerRadius = badge4.frame.size.width / 2
         profileImage1.layer.cornerRadius = profileImage1.frame.size.width / 2
+        profileImage1.layer.borderWidth = 3
+        profileImage1.layer.borderColor = #colorLiteral(red: 0.3019607843, green: 0.8509803922, blue: 0.4196078431, alpha: 1)
+        logOutBtn.layer.borderWidth = 0.2
+        logOutBtn.layer.borderColor = #colorLiteral(red: 0.3019607843, green: 0.8509803922, blue: 0.4196078431, alpha: 1)
     
         downloadJSON {
             self.profileName?.text = self.profile?.full_name
@@ -53,12 +77,9 @@ class SettingViewController: UIViewController {
             }
             print("Success")
         }
-        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(navigate))
         self.view1.addGestureRecognizer(gesture)
     }
-        
-    let gesture = UITapGestureRecognizer(target: self, action: #selector(navigate))
-    
 
     @objc func navigate(_ sender:UITapGestureRecognizer){
         let vc = storyboard?.instantiateViewController(withIdentifier: "profile") as? ProfileViewController
