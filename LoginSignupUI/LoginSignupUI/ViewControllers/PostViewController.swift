@@ -87,7 +87,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPop
     
     func openGallary()
     {
-        picker!.allowsEditing = false
+        picker!.allowsEditing = true
         picker!.sourceType = UIImagePickerController.SourceType.photoLibrary
         present(picker!, animated: true, completion: nil)
     }

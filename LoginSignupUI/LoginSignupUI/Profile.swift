@@ -12,4 +12,6 @@ struct Profile: Codable {
     let email: String
     let imageurl: String
     let about_me: String
+    let followers: Int
+    let following: Int
 }

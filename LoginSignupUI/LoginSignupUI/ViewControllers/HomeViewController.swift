@@ -14,14 +14,14 @@ class HomeViewController: UIViewController {
     var images = [PostItem]()
     @IBOutlet var tableView: UITableView!
     
-    //    struct Data {
-    //        let imgName: String
-    //        let name: String
-    //        let place: String
-    //        let postImg: String
-    //        var description: String
-    //    }
-    //
+//        struct Data1 {
+//            let imgName: String
+//            let name: String
+//            let place: String
+//            let postImg: String
+//            var description: String
+//        }
+//
     //    let data: [Data] = [
     //        Data(imgName: "img1", name: "Prisha Mclaughlin", place: "Ahmedabad", postImg: "img2", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
     //
@@ -75,11 +75,9 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UITableViewDelegate {
-    
-}
 
-extension HomeViewController: UITableViewDataSource {
+
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         addPost.count
     }
@@ -129,8 +127,15 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "detailViewSegue") as? DetailViewController
-        self.navigationController?.pushViewController(vc!, animated: true)
+        if  let vc = storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController {
+            let Cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HomeTableViewCell
+            vc.profile = (Cell?.profileImg.image)!
+            vc.nameLbl = (Cell?.nameLbl.text)!
+            vc.placeLbl = (Cell?.placeLbl.text)!
+            vc.post = (Cell?.postImgView.image)!
+            vc.descriptionlbl = (Cell?.descriptionTextView.text)!
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true

@@ -17,6 +17,9 @@ class SettingViewController: UIViewController {
     @IBOutlet var backBtn2: UIButton!
     @IBOutlet var backBtn3: UIButton!
     @IBOutlet var backBtn4: UIButton!
+    @IBOutlet var backBtn5: UIButton!
+    @IBOutlet var follower: UILabel!
+    @IBOutlet var following: UILabel!
     @IBOutlet var profileImage1: UIImageView!
     @IBOutlet var profileName: UILabel!
     @IBOutlet var email: UILabel!
@@ -28,10 +31,13 @@ class SettingViewController: UIViewController {
     
     var profile: Profile?
   //  var diameter: CGFloat = 30.0
+
+   
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+
+    
         view2.layer.masksToBounds = true
         view3.layer.masksToBounds = true
         view4.layer.masksToBounds = true
@@ -66,6 +72,8 @@ class SettingViewController: UIViewController {
         downloadJSON {
             self.profileName?.text = self.profile?.full_name
             self.email?.text = self.profile?.email
+            self.follower.text = "\((self.profile?.followers)!)"
+            self.following.text = "\((self.profile?.following)!)"
             let imageurl = self.profile?.imageurl
             let url = URL(string: imageurl!)
             let data = try? Data(contentsOf: url!)
@@ -112,5 +120,4 @@ class SettingViewController: UIViewController {
         }.resume()
     }
 }
-
 
