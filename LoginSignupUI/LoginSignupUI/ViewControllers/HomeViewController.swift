@@ -108,7 +108,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 //        }
 //        return cell
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
+        let cell: HomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
       
         let row = addPost[indexPath.row]
         cell.placeLbl?.text = row.place
@@ -128,7 +128,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if  let vc = storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController {
-            let Cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HomeTableViewCell
+            let Cell = tableView.cellForRow(at: indexPath) as? HomeTableViewCell
             vc.profile = (Cell?.profileImg.image)!
             vc.nameLbl = (Cell?.nameLbl.text)!
             vc.placeLbl = (Cell?.placeLbl.text)!

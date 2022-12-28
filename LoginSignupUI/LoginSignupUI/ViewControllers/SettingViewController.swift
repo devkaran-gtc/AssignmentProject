@@ -27,6 +27,7 @@ class SettingViewController: UIViewController {
     @IBOutlet var view2: UIView!
     @IBOutlet var view3: UIView!
     @IBOutlet var view4: UIView!
+    @IBOutlet var view5: UIView!
     @IBOutlet var logOutBtn: UIButton!
     
     var profile: Profile?
@@ -87,6 +88,15 @@ class SettingViewController: UIViewController {
         }
         let gesture = UITapGestureRecognizer(target: self, action: #selector(navigate))
         self.view1.addGestureRecognizer(gesture)
+        
+        let gesture1 = UITapGestureRecognizer(target: self, action: #selector(navigate1))
+        self.view5.addGestureRecognizer(gesture1)
+    }
+    
+    @objc func navigate1(_ sender:UITapGestureRecognizer){
+        let vc1 = storyboard?.instantiateViewController(withIdentifier: "terms") as? termViewController
+        vc1?.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(vc1!, animated: true)
     }
 
     @objc func navigate(_ sender:UITapGestureRecognizer){

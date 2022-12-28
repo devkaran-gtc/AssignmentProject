@@ -1,22 +1,20 @@
 //
-//  ForgotPasswordVC.swift
+//  termViewController.swift
 //  LoginSignupUI
 //
-//  Created by GTCSYS' Mac mini on 11/30/22.
+//  Created by GTCSYS' Mac mini on 12/28/22.
 //
 
 import UIKit
 
-class ForgotPasswordVC: UIViewController {
-    
-    @IBOutlet var emailtextField: UITextField!
-    
+class termViewController: UIViewController {
+
+    @IBOutlet var textView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
 
+        self.textView.text = load1(file: "terms")
+        
         let backImage = UIImage(named: "ic_back")
         let menuBtn = UIButton(type: .custom)
         menuBtn.setImage(backImage, for: .normal)
@@ -33,9 +31,28 @@ class ForgotPasswordVC: UIViewController {
             self.navigationController?.popViewController(animated: true);
         }
     
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
+    
+    func load1(file name:String) -> String {
+        
+        if let path = Bundle.main.path(forResource: name, ofType: "txt") {
+            
+            if let contents = try? String(contentsOfFile: path) {
+                
+                return contents
+                
+            } else {
+                
+                print("Error! - This file doesn't contain any text.")
+            }
+            
+        } else {
+            
+            print("Error! - This file doesn't exist.")
+        }
+        
+        return ""
     }
 }
+
+
 
