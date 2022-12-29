@@ -15,7 +15,9 @@ class SignupViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var confirmPassTextField: UITextField!
     @IBOutlet var errorLabel: UILabel!
+    @IBOutlet var checkBtn: UIButton!
     
+    var flag = false
     override func viewDidLoad() {
         super.viewDidLoad()
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
@@ -31,8 +33,23 @@ class SignupViewController: UIViewController {
         menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 46).isActive = true
         menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 46).isActive = true
         self.navigationItem.leftBarButtonItem = menuBarItem
+        
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+//            imageView.isUserInteractionEnabled = true
+//            imageView.addGestureRecognizer(tapGestureRecognizer)
+        
+        checkBtn.setImage(UIImage(systemName: "square"), for: .normal)
+      
     }
     
+    @IBAction func btnTapped(_ sender: UIButton) {
+        if flag {
+            checkBtn.setImage(UIImage(systemName: "square"), for: .normal)
+        } else {
+            checkBtn.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+        }
+        flag = !flag
+    }
     @objc func backButtonClick(sender : UIButton) {
             self.navigationController?.popViewController(animated: true);
         }
@@ -49,6 +66,10 @@ class SignupViewController: UIViewController {
         if userNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || countryTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             confirmPassTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             return "Please fill in all fields."
+        }
+        
+        if flag == false {
+            return "Please accept Terms & Conditions"
         }
         
         // Check if password is secure.

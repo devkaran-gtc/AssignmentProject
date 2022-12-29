@@ -90,7 +90,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     func openGallary()
     {
-        picker1!.allowsEditing = false
+        picker1!.allowsEditing = true
         picker1!.sourceType = UIImagePickerController.SourceType.photoLibrary
         present(picker1!, animated: true, completion: nil)
     }

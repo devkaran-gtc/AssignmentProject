@@ -43,6 +43,9 @@
 		66B608E0293DFDAB000A2F5E /* FollowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B608DF293DFDAB000A2F5E /* FollowerViewController.swift */; };
 		66B60912293DFF60000A2F5E /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B60911293DFF60000A2F5E /* FollowerTableViewCell.swift */; };
 		66B6092D293E1BE8000A2F5E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B6092C293E1BE3000A2F5E /* SettingViewController.swift */; };
+		66D32472295C7001001817E0 /* terms.txt in Resources */ = {isa = PBXBuildFile; fileRef = 66D32471295C7001001817E0 /* terms.txt */; };
+		66D32475295C71CF001817E0 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D32474295C71CF001817E0 /* TermsViewController.swift */; };
+		66D32478295C760B001817E0 /* termViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D32477295C760B001817E0 /* termViewController.swift */; };
 		66F412BF2941DC46002C9D83 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F412BE2941DC46002C9D83 /* SignupViewController.swift */; };
 		66F975C8295084130083A0C4 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F975C7295084120083A0C4 /* FavouriteViewController.swift */; };
 		66F975CC295084810083A0C4 /* FavouriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F975CB295084810083A0C4 /* FavouriteTableViewCell.swift */; };
@@ -87,6 +90,9 @@
 		66B608DF293DFDAB000A2F5E /* FollowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerViewController.swift; sourceTree = "<group>"; };
 		66B60911293DFF60000A2F5E /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
 		66B6092C293E1BE3000A2F5E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		66D32471295C7001001817E0 /* terms.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = terms.txt; sourceTree = "<group>"; };
+		66D32474295C71CF001817E0 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		66D32477295C760B001817E0 /* termViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = termViewController.swift; sourceTree = "<group>"; };
 		66F412BE2941DC46002C9D83 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		66F975C7295084120083A0C4 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		66F975CB295084810083A0C4 /* FavouriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewCell.swift; sourceTree = "<group>"; };
@@ -159,6 +165,9 @@
 				664FB7B8294CA808001ECDCC /* Profile.swift */,
 				6655913F2950A03600A51A62 /* Followers.swift */,
 				665591432950A31300A51A62 /* Like.swift */,
+				66D32471295C7001001817E0 /* terms.txt */,
+				66D32474295C71CF001817E0 /* TermsViewController.swift */,
+				66D32477295C760B001817E0 /* termViewController.swift */,
 			);
 			path = LoginSignupUI;
 			sourceTree = "<group>";
@@ -275,6 +284,7 @@
 				664BDDF72935DB1C00F173EA /* LaunchScreen.storyboard in Resources */,
 				66035741293A10A700AFC8CD /* GoogleService-Info.plist in Resources */,
 				664BDDF42935DB1C00F173EA /* Assets.xcassets in Resources */,
+				66D32472295C7001001817E0 /* terms.txt in Resources */,
 				664BDDF22935DB1A00F173EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +352,7 @@
 				668C3861293F4F510027B074 /* EditProfileViewController.swift in Sources */,
 				664BDDEB2935DB1A00F173EA /* AppDelegate.swift in Sources */,
 				5E01EAE529488B87002D17B3 /* EditProfile+CoreDataClass.swift in Sources */,
+				66D32478295C760B001817E0 /* termViewController.swift in Sources */,
 				66F975CC295084810083A0C4 /* FavouriteTableViewCell.swift in Sources */,
 				66B60912293DFF60000A2F5E /* FollowerTableViewCell.swift in Sources */,
 				66B608E0293DFDAB000A2F5E /* FollowerViewController.swift in Sources */,
@@ -358,6 +369,7 @@
 				5E01EAE729488B87002D17B3 /* PostItem+CoreDataClass.swift in Sources */,
 				5E01EAE829488B87002D17B3 /* PostItem+CoreDataProperties.swift in Sources */,
 				664BDDED2935DB1A00F173EA /* SceneDelegate.swift in Sources */,
+				66D32475295C71CF001817E0 /* TermsViewController.swift in Sources */,
 				665591442950A31300A51A62 /* Like.swift in Sources */,
 				66294AC12938B42D008247D3 /* DetailViewController.swift in Sources */,
 				669368AE2939CAEE001BE305 /* FloatingLabelInput.swift in Sources */,

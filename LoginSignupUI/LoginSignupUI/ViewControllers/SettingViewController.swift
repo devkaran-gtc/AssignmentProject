@@ -17,6 +17,9 @@ class SettingViewController: UIViewController {
     @IBOutlet var backBtn2: UIButton!
     @IBOutlet var backBtn3: UIButton!
     @IBOutlet var backBtn4: UIButton!
+    @IBOutlet var backBtn5: UIButton!
+    @IBOutlet var follower: UILabel!
+    @IBOutlet var following: UILabel!
     @IBOutlet var profileImage1: UIImageView!
     @IBOutlet var profileName: UILabel!
     @IBOutlet var email: UILabel!
@@ -24,14 +27,18 @@ class SettingViewController: UIViewController {
     @IBOutlet var view2: UIView!
     @IBOutlet var view3: UIView!
     @IBOutlet var view4: UIView!
+    @IBOutlet var view5: UIView!
     @IBOutlet var logOutBtn: UIButton!
     
     var profile: Profile?
   //  var diameter: CGFloat = 30.0
+
+   
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+
+    
         view2.layer.masksToBounds = true
         view3.layer.masksToBounds = true
         view4.layer.masksToBounds = true
@@ -66,6 +73,8 @@ class SettingViewController: UIViewController {
         downloadJSON {
             self.profileName?.text = self.profile?.full_name
             self.email?.text = self.profile?.email
+            self.follower.text = "\((self.profile?.followers)!)"
+            self.following.text = "\((self.profile?.following)!)"
             let imageurl = self.profile?.imageurl
             let url = URL(string: imageurl!)
             let data = try? Data(contentsOf: url!)
@@ -79,6 +88,15 @@ class SettingViewController: UIViewController {
         }
         let gesture = UITapGestureRecognizer(target: self, action: #selector(navigate))
         self.view1.addGestureRecognizer(gesture)
+        
+        let gesture1 = UITapGestureRecognizer(target: self, action: #selector(navigate1))
+        self.view5.addGestureRecognizer(gesture1)
+    }
+    
+    @objc func navigate1(_ sender:UITapGestureRecognizer){
+        let vc1 = storyboard?.instantiateViewController(withIdentifier: "terms") as? termViewController
+        vc1?.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(vc1!, animated: true)
     }
 
     @objc func navigate(_ sender:UITapGestureRecognizer){
@@ -112,5 +130,4 @@ class SettingViewController: UIViewController {
         }.resume()
     }
 }
-
 

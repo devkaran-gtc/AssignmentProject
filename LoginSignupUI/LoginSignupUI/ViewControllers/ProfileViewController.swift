@@ -13,6 +13,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet var profileImgView: UIImageView!
     @IBOutlet var profileName: UILabel!
     @IBOutlet var aboutLbl: UILabel!
+    @IBOutlet var followers: UILabel!
+    @IBOutlet var following: UILabel!
     @IBOutlet var msgView: UIView!
     @IBOutlet var view1: UIView!
     @IBOutlet var view2: UIView!
@@ -60,6 +62,8 @@ class ProfileViewController: UIViewController {
         downloadJSON {
             self.profileName?.text = self.profile?.full_name
             self.aboutLbl?.text = self.profile?.about_me
+            self.followers.text = "\((self.profile?.followers)!)"
+            self.following.text = "\((self.profile?.following)!)"
             let imageurl = self.profile?.imageurl
             let url = URL(string: imageurl!)
             let data = try? Data(contentsOf: url!)
