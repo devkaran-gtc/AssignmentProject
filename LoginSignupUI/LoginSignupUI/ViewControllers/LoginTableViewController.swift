@@ -54,12 +54,6 @@ class LoginTableViewController: UITableViewController {
         
     }
     
-    @IBAction func signUpBtnTapped(_ sender: UIButton) {
-        let nav = storyboard?.instantiateViewController(withIdentifier: "SignUp") as? SignupViewController
-        nav?.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(nav!, animated: true)
-    }
-    
     @IBAction func signInBtnTapped(_ sender: Any) {
         
 //         //create cleaned version of the text field

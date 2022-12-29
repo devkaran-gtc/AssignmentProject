@@ -42,11 +42,6 @@ class SignupViewController: UIViewController {
       
     }
     
-    @IBAction func termsBtn(_ sender: UIButton) {
-        let nav = storyboard?.instantiateViewController(withIdentifier: "term") as? TermsViewController
-        navigationController?.pushViewController(nav!, animated: true)
-    }
-    
     @IBAction func btnTapped(_ sender: UIButton) {
         if flag {
             checkBtn.setImage(UIImage(systemName: "square"), for: .normal)
