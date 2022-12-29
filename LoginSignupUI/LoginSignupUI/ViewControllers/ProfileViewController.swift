@@ -132,8 +132,6 @@ class ProfileViewController: UIViewController {
                 } catch {
                     print("error fatching \(error)")
                 }
-
-
             }
         }.resume()
     }

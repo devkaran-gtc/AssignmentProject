@@ -13,7 +13,6 @@ class FollowerTableViewCell: UITableViewCell {
     @IBOutlet var nameLbl: UILabel!
     @IBOutlet var nickNameLbl: UILabel!
     @IBOutlet var followBtn: UIButton!
-    var isClicked = true
     var followStatus: FollowStatus = .follow
     override func awakeFromNib() {
         super.awakeFromNib()
