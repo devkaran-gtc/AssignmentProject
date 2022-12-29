@@ -391,7 +391,6 @@
             <objects>
                 <navigationController id="mV3-eO-1gv" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="homekit" catalog="system" id="rm2-79-6ah">
-                        <inset key="imageInsets" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="0.15686274509803921" green="0.80392156862745101" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
@@ -702,7 +701,7 @@
             <objects>
                 <navigationController id="50d-fy-Qit" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="heart" catalog="system" id="DqK-6h-8xw">
-                        <inset key="imageInsets" minX="0.0" minY="20" maxX="0.0" maxY="-2"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="0.15686274509803921" green="0.80392156862745101" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
@@ -726,7 +725,6 @@
             <objects>
                 <navigationController id="iuV-MF-MSu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="bookmark" catalog="system" id="Izc-Rd-7l3">
-                        <inset key="imageInsets" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="0.15686274509803921" green="0.80392156862745101" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
@@ -750,7 +748,6 @@
             <objects>
                 <navigationController storyboardIdentifier="SettingViewController" id="dZi-wu-3Da" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="gearshape" catalog="system" id="g3G-rJ-e03">
-                        <inset key="imageInsets" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="-1"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -1758,7 +1755,7 @@
         <!--Term View Controller-->
         <scene sceneID="Do3-HL-y6P">
             <objects>
-                <viewController storyboardIdentifier="terms" id="ZaL-WY-tAB" customClass="termViewController" customModule="LoginSignupUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="terms" hidesBottomBarWhenPushed="YES" id="ZaL-WY-tAB" customClass="termViewController" customModule="LoginSignupUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RWR-tF-Mtf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
