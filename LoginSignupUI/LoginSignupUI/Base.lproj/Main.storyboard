@@ -91,7 +91,7 @@
         <!--Signup View Controller-->
         <scene sceneID="v91-8c-rX1">
             <objects>
-                <viewController storyboardIdentifier="SignupViewController" id="ua1-dV-b9z" customClass="SignupViewController" customModule="LoginSignupUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Signup" id="ua1-dV-b9z" customClass="SignupViewController" customModule="LoginSignupUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7wj-qi-ZAg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
