@@ -129,8 +129,8 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "detailViewSegue") as? DetailViewController
-        self.navigationController?.pushViewController(vc!, animated: true)
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "detailViewSegue") as? DetailViewController
+//        self.navigationController?.pushViewController(vc!, animated: true)
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -167,8 +167,6 @@ extension HomeViewController: UITableViewDataSource {
                 } catch {
                     print("error fatching ")
                 }
-               
-               
             }
         }.resume()
     }

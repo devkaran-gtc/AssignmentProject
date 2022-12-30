@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UINavigationControllerDelegate, UITextViewDelegate {
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
     
     var picker1:UIImagePickerController? = UIImagePickerController()
     
@@ -49,6 +49,22 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         addImageBtn.layer.borderWidth = 1
         addImageBtn.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
         
+        nameTextField.delegate = self
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if nameTextField.placeholder == "" {
+            nameTextField.textColor = .black
+            nameTextField.layer.cornerRadius = 7
+            nameTextField.layer.borderWidth = 1
+            nameTextField.layer.borderColor = #colorLiteral(red: 0.3019607843, green: 0.8509803922, blue: 0.4117647059, alpha: 1)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if nameTextField.text == "" {
+            nameTextField.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        }
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -90,7 +106,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     func openGallary()
     {
-        picker1!.allowsEditing = false
+        picker1!.allowsEditing = true
         picker1!.sourceType = UIImagePickerController.SourceType.photoLibrary
         present(picker1!, animated: true, completion: nil)
     }

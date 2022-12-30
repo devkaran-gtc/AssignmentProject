@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UINavigationControllerDelegate, UITextViewDelegate {
+class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
     
     var picker:UIImagePickerController?=UIImagePickerController()
     var indexRow = Int()
@@ -46,6 +46,23 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPop
         imgBtn.layer.cornerRadius = 15
         imgBtn.layer.borderWidth = 1
         imgBtn.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        
+        placeTextField.delegate = self
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if placeTextField.placeholder == "" {
+            placeTextField.textColor = .black
+            placeTextField.layer.cornerRadius = 7
+            placeTextField.layer.borderWidth = 1
+            placeTextField.layer.borderColor = #colorLiteral(red: 0.3019607843, green: 0.8509803922, blue: 0.4117647059, alpha: 1)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if placeTextField.text == "" {
+            placeTextField.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        }
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -87,7 +104,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPop
     
     func openGallary()
     {
-        picker!.allowsEditing = false
+        picker!.allowsEditing = true
         picker!.sourceType = UIImagePickerController.SourceType.photoLibrary
         present(picker!, animated: true, completion: nil)
     }

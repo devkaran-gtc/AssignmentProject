@@ -10,7 +10,7 @@ import UIKit
 class FloatingLabelInput: UITextField {
     
     var floatingLabel: UILabel = UILabel(frame: CGRect.zero) // Label
-    var floatingLabelHeight: CGFloat = 10 // Default height
+    var floatingLabelHeight: CGFloat = -1 // Default height
     @IBInspectable
     var _placeholder: String? // we cannot override 'placeholder'
     @IBInspectable
@@ -23,7 +23,7 @@ class FloatingLabelInput: UITextField {
     @IBInspectable
     var activeBorderColor: UIColor = UIColor(red: 77/255, green: 217/255, blue: 105/255, alpha: 1)
     @IBInspectable
-    var floatingLabelFont: UIFont = UIFont.systemFont(ofSize: 14) {
+    var floatingLabelFont: UIFont = UIFont.systemFont(ofSize: 12) {
         didSet {
             self.floatingLabel.font = self.floatingLabelFont
             self.font = self.floatingLabelFont
@@ -53,8 +53,9 @@ class FloatingLabelInput: UITextField {
             self.layer.borderColor = self.activeBorderColor.cgColor
             self.addSubview(self.floatingLabel)
           
-      //      self.floatingLabel.bottomAnchor.constraint(equalTo:
-      //      self.topAnchor, constant: -10).isActive = true // Place our label 10pts above the text field
+            self.floatingLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5).isActive = true
+            self.floatingLabel.bottomAnchor.constraint(equalTo:
+            self.topAnchor, constant: 20).isActive = true // Place our label 10pts above the text field
             // Remove the placeholder
             self.placeholder = ""
         }

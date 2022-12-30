@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var userNameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
@@ -15,6 +15,9 @@ class SignupViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var confirmPassTextField: UITextField!
     @IBOutlet var errorLabel: UILabel!
+    @IBOutlet var checkBtn: UIButton!
+    
+    var flag = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +34,74 @@ class SignupViewController: UIViewController {
         menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 46).isActive = true
         menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 46).isActive = true
         self.navigationItem.leftBarButtonItem = menuBarItem
+        
+        userNameTextField.delegate = self
+        emailTextField.delegate = self
+        countryTextField.delegate = self
+        passwordTextField.delegate = self
+        confirmPassTextField.delegate = self
+        
+        checkBtn.setImage(UIImage(systemName: "square"), for: .normal)
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if userNameTextField.placeholder == "" {
+            userNameTextField.textColor = .black
+            userNameTextField.layer.cornerRadius = 7
+            userNameTextField.layer.borderWidth = 1
+            userNameTextField.layer.borderColor = #colorLiteral(red: 0.3019607843, green: 0.8509803922, blue: 0.4117647059, alpha: 1)
+        }
+        
+        if emailTextField.placeholder == "" {
+            emailTextField.textColor = .black
+            emailTextField.layer.cornerRadius = 7
+            emailTextField.layer.borderWidth = 1
+            emailTextField.layer.borderColor = #colorLiteral(red: 0.3019607843, green: 0.8509803922, blue: 0.4117647059, alpha: 1)
+        }
+        
+        if countryTextField.placeholder == "" {
+            countryTextField.textColor = .black
+            countryTextField.layer.cornerRadius = 7
+            countryTextField.layer.borderWidth = 1
+            countryTextField.layer.borderColor = #colorLiteral(red: 0.3019607843, green: 0.8509803922, blue: 0.4117647059, alpha: 1)
+        }
+        
+        if passwordTextField.placeholder == "" {
+            passwordTextField.textColor = .black
+            passwordTextField.layer.cornerRadius = 7
+            passwordTextField.layer.borderWidth = 1
+            passwordTextField.layer.borderColor = #colorLiteral(red: 0.3019607843, green: 0.8509803922, blue: 0.4117647059, alpha: 1)
+        }
+        
+        if confirmPassTextField.placeholder == "" {
+            confirmPassTextField.textColor = .black
+            confirmPassTextField.layer.cornerRadius = 7
+            confirmPassTextField.layer.borderWidth = 1
+            confirmPassTextField.layer.borderColor = #colorLiteral(red: 0.3019607843, green: 0.8509803922, blue: 0.4117647059, alpha: 1)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if userNameTextField.text == "" {
+            userNameTextField.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        }
+        
+        if emailTextField.text == "" {
+            emailTextField.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        }
+        
+        if countryTextField.text == "" {
+            countryTextField.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        }
+        
+        if passwordTextField.text == "" {
+            passwordTextField.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        }
+        
+        if confirmPassTextField.text == "" {
+            confirmPassTextField.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        }
+    }
     @objc func backButtonClick(sender : UIButton) {
             self.navigationController?.popViewController(animated: true);
         }
@@ -51,6 +120,9 @@ class SignupViewController: UIViewController {
             return "Please fill in all fields."
         }
         
+        if flag == false {
+            return "Please accept terms & conditions"
+        }
         // Check if password is secure.
         let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
@@ -59,6 +131,15 @@ class SignupViewController: UIViewController {
             return "Please make sure your password is atleast 8 character, contain a special character and a number."
         }
         return nil
+    }
+    
+    @IBAction func checkBtnTapped(_ sender: UIButton) {
+        if flag {
+            checkBtn.setImage(UIImage(systemName: "square"), for: .normal)
+        } else {
+            checkBtn.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+        }
+        flag = !flag
     }
     
     @IBAction func signUpBtnTapped(_ sender: Any) {
