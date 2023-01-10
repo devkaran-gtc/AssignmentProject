@@ -12,5 +12,5 @@ target 'LoginSignupUI' do
   pod 'FirebaseCore'
   pod 'FirebaseFirestore'
   pod ‘FirebaseDatabase‘
-  pod 'FirebaseStorage'
+
 end
