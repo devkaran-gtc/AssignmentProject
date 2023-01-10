@@ -56,8 +56,6 @@ class ProfileViewController: UIViewController {
         profileImgView.image = profileImg
         profileName.text = profilenameLbl
         aboutLbl.text = about
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
         
         downloadJSON {
             self.profileName?.text = self.profile?.full_name
@@ -85,6 +83,8 @@ class ProfileViewController: UIViewController {
         menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 46).isActive = true
         menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 46).isActive = true
         self.navigationItem.leftBarButtonItem = menuBarItem
+        
+        self.hidekeyboard()
     }
     
     @objc func backButtonClick(sender : UIButton) {
@@ -98,11 +98,6 @@ class ProfileViewController: UIViewController {
     
     func loadData() {
         post = Post.shareInstance.fetchData()
-    }
-    
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
     }
     
     @IBAction func editBtnTapped(_ sender: Any) {

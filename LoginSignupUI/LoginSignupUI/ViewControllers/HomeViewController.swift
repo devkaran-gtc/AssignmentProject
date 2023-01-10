@@ -36,9 +36,8 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         navigationController?.navigationBar.tintColor = .label
         configureItems()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-       
+        
+        self.hidekeyboard()
         downloadJSON {
             self.tableView.reloadData()
             print("Success")
@@ -53,11 +52,6 @@ class HomeViewController: UIViewController {
 //    func loaddata() {
 //       // images = DatabaseHelper.shareInstance.fetchImage()
 //    }
-    
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
     
     private func configureItems() {
         
@@ -180,3 +174,16 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
+extension UIViewController {
+    func hidekeyboard() {
+        let tap:UITapGestureRecognizer  = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+       
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+}

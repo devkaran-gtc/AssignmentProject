@@ -29,8 +29,6 @@ class DetailViewController: UIViewController, UITextViewDelegate {
         name.text = nameLbl
         place.text = placeLbl
         descriptionTxtView.text = descriptionlbl
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
     
         let backImage = UIImage(named: "ic_back")
         let menuBtn = UIButton(type: .custom)
@@ -48,6 +46,8 @@ class DetailViewController: UIViewController, UITextViewDelegate {
         descriptionTxtView.layer.cornerRadius = 7
         descriptionTxtView.layer.borderWidth = 0.3
         descriptionTxtView.layer.borderColor = #colorLiteral(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1)
+        
+        self.hidekeyboard()
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -72,9 +72,4 @@ class DetailViewController: UIViewController, UITextViewDelegate {
     @objc func backButtonClick(sender : UIButton) {
             self.navigationController?.popViewController(animated: true);
         }
-    
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
 }
