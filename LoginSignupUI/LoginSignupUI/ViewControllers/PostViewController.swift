@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UINavigationControllerDelegate, UITextViewDelegate {
+class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
     
     var picker:UIImagePickerController?=UIImagePickerController()
     var indexRow = Int()
@@ -16,14 +16,12 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPop
     @IBOutlet var placeTextField: UITextField!
     @IBOutlet var postImage: UIImageView!
     @IBOutlet var imgBtn: UIButton!
+    @IBOutlet var save: UIButton!
     @IBOutlet var descriptionTxtView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         picker?.delegate=self
-        view.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
     
         let backImage = UIImage(named: "ic_back")
         let menuBtn = UIButton(type: .custom)
@@ -46,6 +44,25 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPop
         imgBtn.layer.cornerRadius = 15
         imgBtn.layer.borderWidth = 1
         imgBtn.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        
+        self.hidekeyboard()
+        placeTextField.delegate = self
+    
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if placeTextField.placeholder == "" {
+            placeTextField.textColor = .black
+            placeTextField.layer.cornerRadius = 7
+            placeTextField.layer.borderWidth = 1
+            placeTextField.layer.borderColor = #colorLiteral(red: 0.3019607843, green: 0.8509803922, blue: 0.4117647059, alpha: 1)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if placeTextField.text == "" {
+            placeTextField.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        }
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -70,12 +87,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPop
     @objc func backButtonClick(sender : UIButton) {
             self.navigationController?.popViewController(animated: true);
         }
-    
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
-    
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         

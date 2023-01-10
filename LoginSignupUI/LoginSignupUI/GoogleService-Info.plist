@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1025341166536-kvcks8rv33luskcpeiidso04ga6vk86f.apps.googleusercontent.com</string>
+	<string>667206125837-sarni4k2bacgig2c13dmide5c9s9aabe.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1025341166536-kvcks8rv33luskcpeiidso04ga6vk86f</string>
+	<string>com.googleusercontent.apps.667206125837-sarni4k2bacgig2c13dmide5c9s9aabe</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDHWajhnbew5LuK_Gl8avh7URRPY1wu49c</string>
+	<string>AIzaSyCASW9jg2FmcqO9DMBfqd4TcJ6aP8XD9eY</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1025341166536</string>
+	<string>667206125837</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>developer.LoginSignupUI</string>
 	<key>PROJECT_ID</key>
-	<string>loginsignupui-40226</string>
+	<string>loginsignupui-e9a6b</string>
 	<key>STORAGE_BUCKET</key>
-	<string>loginsignupui-40226.appspot.com</string>
+	<string>loginsignupui-e9a6b.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1025341166536:ios:fc44e6a0362fbe318266fd</string>
+	<string>1:667206125837:ios:da89185cb113be9bfc4844</string>
 </dict>
 </plist>
