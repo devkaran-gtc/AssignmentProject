@@ -14,7 +14,9 @@ class LoginTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var signInBtn: UIButton!
+    @IBOutlet var eyeBtn: UIButton!
     
+    var flag = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +36,20 @@ class LoginTableViewController: UITableViewController, UITextFieldDelegate {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
+        eyeBtn.setImage(UIImage(named: "closeEye"), for: .normal)
+        eyeBtn.setTitle("", for: .normal)
+        
+    }
+    
+    @IBAction func eyebtnTapped(_ sender: UIButton) {
+        if flag {
+            eyeBtn.setImage(UIImage(named: "closeEye"), for: .normal)
+            passwordTextField.isSecureTextEntry = true
+        } else {
+            eyeBtn.setImage(UIImage(named: "eye"), for: .normal)
+            passwordTextField.isSecureTextEntry = false
+        }
+        flag = !flag
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

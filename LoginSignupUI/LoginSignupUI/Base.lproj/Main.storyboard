@@ -560,7 +560,7 @@
                                                         <constraint firstAttribute="height" constant="69" id="Vb6-q3-Hnb"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V4T-OH-SIH">
                                                     <rect key="frame" x="25" y="414" width="137" height="36"/>
@@ -636,12 +636,28 @@
                                                     <color key="textColor" systemColor="systemRedColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nx-k4-dZb">
+                                                    <rect key="frame" x="347" y="347" width="37" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="Cj3-VC-YcJ"/>
+                                                        <constraint firstAttribute="width" constant="37" id="lfO-bk-eWn"/>
+                                                        <constraint firstAttribute="height" constant="35" id="lin-L5-UiU"/>
+                                                    </constraints>
+                                                    <color key="tintColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="closeEye"/>
+                                                    <connections>
+                                                        <action selector="eyebtnTapped:" destination="vvF-YN-FwS" eventType="touchUpInside" id="UP4-a9-SK9"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="rEh-yk-Z4r" secondAttribute="bottom" constant="30" id="5f5-Cp-ZG2"/>
                                                 <constraint firstItem="V4T-OH-SIH" firstAttribute="leading" secondItem="x1s-j0-IbK" secondAttribute="leading" id="A4f-4E-W6S"/>
+                                                <constraint firstItem="4nx-k4-dZb" firstAttribute="centerY" secondItem="x1s-j0-IbK" secondAttribute="centerY" id="DN4-Ud-Eyl"/>
                                                 <constraint firstItem="rEh-yk-Z4r" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fnM-rh-ZTc" secondAttribute="bottom" constant="30" id="DhW-yJ-Wto"/>
                                                 <constraint firstItem="Xoa-EW-NiA" firstAttribute="trailing" secondItem="x1s-j0-IbK" secondAttribute="trailing" id="F40-tc-026"/>
+                                                <constraint firstItem="4nx-k4-dZb" firstAttribute="trailing" secondItem="x1s-j0-IbK" secondAttribute="trailing" constant="-5" id="FnO-zn-Hgh"/>
                                                 <constraint firstItem="nPL-dU-gsy" firstAttribute="centerX" secondItem="8kd-VM-9r6" secondAttribute="centerX" id="H06-rg-S3G"/>
                                                 <constraint firstItem="Xoa-EW-NiA" firstAttribute="top" secondItem="V4T-OH-SIH" secondAttribute="bottom" constant="40" id="LPg-03-wKc"/>
                                                 <constraint firstItem="MCl-MT-hL6" firstAttribute="leading" secondItem="8kd-VM-9r6" secondAttribute="leading" constant="25" id="PlT-eY-nzF"/>
@@ -674,6 +690,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="MCl-MT-hL6" id="Ckq-i2-kwQ"/>
                         <outlet property="errorLabel" destination="fnM-rh-ZTc" id="oSE-Kc-7Kk"/>
+                        <outlet property="eyeBtn" destination="4nx-k4-dZb" id="jIa-Zc-h0F"/>
                         <outlet property="passwordTextField" destination="x1s-j0-IbK" id="YPY-rI-WLf"/>
                         <outlet property="signInBtn" destination="Xoa-EW-NiA" id="Vxa-7G-X1S"/>
                     </connections>
@@ -918,6 +935,12 @@
                                         <color key="textColor" red="0.56862745098039214" green="0.56862745098039214" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aarush Galloway" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUr-DQ-kzq">
+                                        <rect key="frame" x="103" y="8" width="139.5" height="25"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="D8s-6D-Apd">
                                         <rect key="frame" x="25" y="95" width="364" height="130.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -925,12 +948,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aarush Galloway" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUr-DQ-kzq">
-                                        <rect key="frame" x="103" y="8" width="139.5" height="25"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -2228,6 +2245,7 @@
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="chatIcon" width="18" height="17"/>
+        <image name="closeEye" width="27" height="27"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="homekit" catalog="system" width="128" height="106"/>

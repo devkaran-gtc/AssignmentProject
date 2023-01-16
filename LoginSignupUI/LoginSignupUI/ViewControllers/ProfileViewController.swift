@@ -7,6 +7,10 @@
 
 import UIKit
 import CoreData
+import FirebaseCore
+import FirebaseStorage
+import FirebaseDatabase
+
 class ProfileViewController: UIViewController {
     
     var post = [EditProfile]()
@@ -20,7 +24,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet var view2: UIView!
     @IBOutlet var view3: UIView!
     
-    
+    var profile1 = [Profile1]()
     var profileImg = UIImage()
     var profilenameLbl = ""
     var about = ""
@@ -57,23 +61,23 @@ class ProfileViewController: UIViewController {
         profileName.text = profilenameLbl
         aboutLbl.text = about
         
-        downloadJSON {
-            self.profileName?.text = self.profile?.full_name
-            self.aboutLbl?.text = self.profile?.about_me
-            self.followers.text = "\((self.profile?.followers)!)"
-            self.following.text = "\((self.profile?.following)!)"
-            let imageurl = self.profile?.imageurl
-            let url = URL(string: imageurl!)
-            let data = try? Data(contentsOf: url!)
-            if let imageData = data {
-                let image = UIImage(data: imageData)
-                self.profileImgView.image = image
-            }else {
-                self.profileImgView.image = nil
-            }
-            print("Success")
-        }
-    
+//        downloadJSON {
+//            self.profileName?.text = self.profile?.full_name
+//            self.aboutLbl?.text = self.profile?.about_me
+//            self.followers.text = "\((self.profile?.followers)!)"
+//            self.following.text = "\((self.profile?.following)!)"
+//            let imageurl = self.profile?.imageurl
+//            let url = URL(string: imageurl!)
+//            let data = try? Data(contentsOf: url!)
+//            if let imageData = data {
+//                let image = UIImage(data: imageData)
+//                self.profileImgView.image = image
+//            }else {
+//                self.profileImgView.image = nil
+//            }
+//            print("Success")
+//        }
+        
         let backImage = UIImage(named: "ic_back")
         let menuBtn = UIButton(type: .custom)
         menuBtn.setImage(backImage, for: .normal)
@@ -85,6 +89,25 @@ class ProfileViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = menuBarItem
         
         self.hidekeyboard()
+        retriveData()
+    }
+    
+    func retriveData() {
+        Database.database().reference().child("profile").observeSingleEvent(of: .childAdded) { (snapshot) in
+            if let snapshotValue = snapshot.value as? [String: Any] {
+                self.profileName.text = snapshotValue["name"] as? String
+                self.aboutLbl.text = snapshotValue["desc1"] as? String
+                let imgUrl = snapshotValue["imageDownloadURL1"] as? String
+                let url = URL(string: imgUrl!)
+                let data = try? Data(contentsOf: url!)
+                if let imageData = data {
+                    let image = UIImage(data: imageData)
+                    self.profileImgView.image = image
+                }else {
+                    self.profileImgView.image = nil
+                }
+            }
+        }
     }
     
     @objc func backButtonClick(sender : UIButton) {
@@ -93,7 +116,6 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         loadData()
-    
     }
     
     func loadData() {
