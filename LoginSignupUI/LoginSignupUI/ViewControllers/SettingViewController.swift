@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseStorage
+import FirebaseDatabase
 
 class SettingViewController: UIViewController {
 
@@ -70,27 +73,46 @@ class SettingViewController: UIViewController {
         logOutBtn.layer.borderWidth = 0.2
         logOutBtn.layer.borderColor = #colorLiteral(red: 0.3019607843, green: 0.8509803922, blue: 0.4196078431, alpha: 1)
     
-        downloadJSON {
-            self.profileName?.text = self.profile?.full_name
-            self.email?.text = self.profile?.email
-            self.follower.text = "\((self.profile?.followers)!)"
-            self.following.text = "\((self.profile?.following)!)"
-            let imageurl = self.profile?.imageurl
-            let url = URL(string: imageurl!)
-            let data = try? Data(contentsOf: url!)
-            if let imageData = data {
-                let image = UIImage(data: imageData)
-                self.profileImage1.image = image
-            }else {
-                self.profileImage1.image = nil
-            }
-            print("Success")
-        }
+//        downloadJSON {
+//            self.profileName?.text = self.profile?.full_name
+//            self.email?.text = self.profile?.email
+//            self.follower.text = "\((self.profile?.followers)!)"
+//            self.following.text = "\((self.profile?.following)!)"
+//            let imageurl = self.profile?.imageurl
+//            let url = URL(string: imageurl!)
+//            let data = try? Data(contentsOf: url!)
+//            if let imageData = data {
+//                let image = UIImage(data: imageData)
+//                self.profileImage1.image = image
+//            }else {
+//                self.profileImage1.image = nil
+//            }
+//            print("Success")
+//        }
         let gesture = UITapGestureRecognizer(target: self, action: #selector(navigate))
         self.view1.addGestureRecognizer(gesture)
         
         let gesture1 = UITapGestureRecognizer(target: self, action: #selector(navigate1))
         self.view5.addGestureRecognizer(gesture1)
+        retriveData()
+    }
+    
+    func retriveData() {
+        Database.database().reference().child("profile").observeSingleEvent(of: .childAdded) { (snapshot) in
+            if let snapshotValue = snapshot.value as? [String: Any] {
+                self.profileName.text = snapshotValue["name"] as? String
+                self.email.text = snapshotValue["email"] as? String
+                let imgUrl = snapshotValue["imageDownloadURL1"] as? String
+                let url = URL(string: imgUrl!)
+                let data = try? Data(contentsOf: url!)
+                if let imageData = data {
+                    let image = UIImage(data: imageData)
+                    self.profileImage1.image = image
+                }else {
+                    self.profileImage1.image = nil
+                }
+            }
+        }
     }
     
     @objc func navigate1(_ sender:UITapGestureRecognizer){
@@ -111,23 +133,23 @@ class SettingViewController: UIViewController {
         view.window?.makeKeyAndVisible()
     }
     
-    func downloadJSON(completed: @escaping () -> ()) {
-        let url = URL(string: "http://192.168.1.71:3000/profile")
-        URLSession.shared.dataTask(with: url!) { (data, response, err) in
-
-            if err == nil {
-                do {
-                    self.profile = try JSONDecoder().decode(Profile.self, from: data!)
-                    DispatchQueue.main.async {
-                        completed()
-                    }
-                } catch {
-                    print("error fatching \(error)")
-                }
-
-
-            }
-        }.resume()
-    }
+//    func downloadJSON(completed: @escaping () -> ()) {
+//        let url = URL(string: "http://192.168.1.71:3000/profile")
+//        URLSession.shared.dataTask(with: url!) { (data, response, err) in
+//
+//            if err == nil {
+//                do {
+//                    self.profile = try JSONDecoder().decode(Profile.self, from: data!)
+//                    DispatchQueue.main.async {
+//                        completed()
+//                    }
+//                } catch {
+//                    print("error fatching \(error)")
+//                }
+//
+//
+//            }
+//        }.resume()
+//    }
 }
 
