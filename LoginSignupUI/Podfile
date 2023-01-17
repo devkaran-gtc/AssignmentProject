@@ -11,6 +11,8 @@ target 'LoginSignupUI' do
   pod 'FirebaseAuth'
   pod 'FirebaseCore'
   pod 'FirebaseFirestore'
-  pod ‘FirebaseDatabase‘
+  pod 'FirebaseDatabase'
   pod 'FirebaseStorage'
+  pod 'SwiftyJSON'
+
 end

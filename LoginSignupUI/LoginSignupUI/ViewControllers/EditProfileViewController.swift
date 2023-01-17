@@ -112,8 +112,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         openGallary()
     }
     
-    func openGallary()
-    {
+    func openGallary() {
         picker1!.allowsEditing = true
         picker1!.sourceType = UIImagePickerController.SourceType.photoLibrary
         present(picker1!, animated: true, completion: nil)
@@ -130,15 +129,23 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     
     @IBAction func saveBtnTapped(_ sender: Any) {
-        if let vc3 = storyboard?.instantiateViewController(withIdentifier: "profile") as? ProfileViewController {
-            vc3.profilenameLbl = nameTextField.text!
-            vc3.profileImg = profileImage.image!
-            vc3.about = aboutTxtView.text
-            if let imageData = profileImage.image?.jpegData(compressionQuality: 1) {
-            Post.shareInstance.saveData(about: aboutTxtView.text!, name: nameTextField.text!, profileImg: imageData)
+//        if let vc3 = storyboard?.instantiateViewController(withIdentifier: "profile") as? ProfileViewController {
+//            vc3.profilenameLbl = nameTextField.text!
+//            vc3.profileImg = profileImage.image!
+//            vc3.about = aboutTxtView.text
+//            if let imageData = profileImage.image?.jpegData(compressionQuality: 1) {
+//            Post.shareInstance.saveData(about: aboutTxtView.text!, name: nameTextField.text!, profileImg: imageData)
+//            }
+//            navigationController?.pushViewController(vc3, animated: true)
+//            setUpPutMethod()
+//        }
+        
+        if nameTextField.text != "" && emailLbl.text != nil && profileImage.image != nil && aboutTxtView.text != "" {
+            if let imgData1 = profileImage.image {
+                let newPost = Profile1(name: nameTextField.text!, email: emailLbl.text!, img1: imgData1, desc1: aboutTxtView.text!)
+            newPost.save()
             }
-            navigationController?.pushViewController(vc3, animated: true)
-            setUpPutMethod()
+            _ = navigationController?.popViewController(animated: true)
         }
         
 //        let nameLbl = nameTextField.text ?? ""

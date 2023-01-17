@@ -7,11 +7,15 @@
 
 import UIKit
 import CoreData
+import FirebaseCore
+import FirebaseStorage
+import FirebaseDatabase
 
 class HomeViewController: UIViewController {
     
     var addPost = [AddPost]()
     var images = [PostItem]()
+    var post = [Post1]()
     @IBOutlet var tableView: UITableView!
     
 //        struct Data1 {
@@ -41,6 +45,16 @@ class HomeViewController: UIViewController {
         downloadJSON {
             self.tableView.reloadData()
             print("Success")
+        }
+        
+        /// download post
+        Database.database().reference().child("photoPost").observe(.childAdded) { (snapshot) in
+            
+            let newPost = Post1(snapshot: snapshot)
+            self.post.append(newPost)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -73,7 +87,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        addPost.count
+        post.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -101,35 +115,33 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 //            cell.postImgView.image = nil
 //        }
 //        return cell
-        
         let cell: HomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
-      
-        let row = addPost[indexPath.row]
+        let row = post[indexPath.row]
         cell.placeLbl?.text = row.place
-        cell.descriptionTextView?.text = row.description
-        let imgUrl = row.imageurl
-        let url = URL(string: imgUrl)
+        cell.descriptionTextView?.text = row.desc
+        let imgUrl = row.imageDownloadURL
+        let url = URL(string: imgUrl!)
         let data = try? Data(contentsOf: url!)
         if let imageData = data {
-                let image = UIImage(data: imageData)
+            let image = UIImage(data: imageData)
             cell.postImgView.image = image
-            }else {
-                cell.postImgView.image = nil
-            }
+        }else {
+            cell.postImgView.image = nil
+        }
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if  let vc = storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController {
-            let Cell = tableView.cellForRow(at: indexPath) as? HomeTableViewCell
-            vc.profile = (Cell?.profileImg.image)!
-            vc.nameLbl = (Cell?.nameLbl.text)!
-            vc.placeLbl = (Cell?.placeLbl.text)!
-            vc.post = (Cell?.postImgView.image)!
-            vc.descriptionlbl = (Cell?.descriptionTextView.text)!
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+//        if  let vc = storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController {
+//            let Cell = tableView.cellForRow(at: indexPath) as? HomeTableViewCell
+//            vc.profile = (Cell?.profileImg.image)!
+//            vc.nameLbl = (Cell?.nameLbl.text)!
+//            vc.placeLbl = (Cell?.placeLbl.text)!
+//            vc.post = (Cell?.postImgView.image)!
+//            vc.descriptionlbl = (Cell?.descriptionTextView.text)!
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true

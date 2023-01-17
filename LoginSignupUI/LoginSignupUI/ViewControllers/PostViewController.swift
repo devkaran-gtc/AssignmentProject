@@ -115,15 +115,23 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UIPop
     
     @IBAction func saveBtnTapped(_ sender: Any) {
         
-        let placeLbl = placeTextField.text ?? ""
-        let desc = descriptionTxtView.text ?? ""
+//        let placeLbl = placeTextField.text ?? ""
+//        let desc = descriptionTxtView.text ?? ""
+//
+//        if let imageData = postImage.image?.jpegData(compressionQuality: 1) {
+//            DatabaseHelper.shareInstance.save(desc: desc, place: placeLbl, postImg: imageData)
+//        }
+//        _ = navigationController?.popViewController(animated: true)
+//
+//        self.setUpPostMethod()
         
-        if let imageData = postImage.image?.jpegData(compressionQuality: 1) {
-            DatabaseHelper.shareInstance.save(desc: desc, place: placeLbl, postImg: imageData)
+        if descriptionTxtView.text != "" && postImage.image != nil && placeTextField.text != "" {
+            if let imgData = postImage.image {
+                let newPost = Post1(place: placeTextField.text!, desc: descriptionTxtView.text, img: imgData)
+            newPost.save()
+            }
+            _ = navigationController?.popViewController(animated: true)
         }
-        _ = navigationController?.popViewController(animated: true)
-        
-        self.setUpPostMethod()
     }
 }
 
