@@ -136,7 +136,7 @@
 		6655913F2950A03600A51A62 /* Followers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Followers.swift; sourceTree = "<group>"; };
 		665591432950A31300A51A62 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		6655EEE9294708DE008558CB /* PostItem.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PostItem.xcdatamodel; sourceTree = "<group>"; };
-		668C3859293F36C00027B074 /* FollowStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowStatus.swift; sourceTree = "<group>"; };
+		668C3859293F36C00027B074 /* FollowStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FollowStatus.swift; path = ../FollowStatus.swift; sourceTree = "<group>"; };
 		668C385C293F4D2C0027B074 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		668C3860293F4F510027B074 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		669368AD2939CAED001BE305 /* FloatingLabelInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLabelInput.swift; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 		66D32471295C7001001817E0 /* terms.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = terms.txt; sourceTree = "<group>"; };
 		66D32474295C71CF001817E0 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		66D32477295C760B001817E0 /* termViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = termViewController.swift; sourceTree = "<group>"; };
-		66F412BE2941DC46002C9D83 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		66F412BE2941DC46002C9D83 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = ../SignupViewController.swift; sourceTree = "<group>"; };
 		66F975C7295084120083A0C4 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		66F975CB295084810083A0C4 /* FavouriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewCell.swift; sourceTree = "<group>"; };
 		BECAE3E992F057808863D2B0 /* Pods-LoginSignupUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginSignupUI.debug.xcconfig"; path = "Target Support Files/Pods-LoginSignupUI/Pods-LoginSignupUI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -272,22 +272,8 @@
 				154FB3F4297137AA005E3074 /* Assets.xcassets */,
 				15F375B2296C2714002E89A8 /* GoogleService-Info.plist */,
 				664BDDF82935DB1C00F173EA /* Info.plist */,
-				669368AD2939CAED001BE305 /* FloatingLabelInput.swift */,
-				668C3859293F36C00027B074 /* FollowStatus.swift */,
-				6655913C2950977300A51A62 /* FavoriteStatus.swift */,
-				6632DD7E2940C92C0053AAF3 /* Post.swift */,
-				66F412BE2941DC46002C9D83 /* SignupViewController.swift */,
 				6655EEE8294708DE008558CB /* PostItem.xcdatamodeld */,
-				6653977A294B57CC007B672B /* AddPost.swift */,
-				664FB7B8294CA808001ECDCC /* Profile.swift */,
-				6655913F2950A03600A51A62 /* Followers.swift */,
-				665591432950A31300A51A62 /* Like.swift */,
 				66D32471295C7001001817E0 /* terms.txt */,
-				66D32474295C71CF001817E0 /* TermsViewController.swift */,
-				66D32477295C760B001817E0 /* termViewController.swift */,
-				15E784EA2968563F00957B51 /* UIResponder.swift */,
-				15569891296E8CFC00643206 /* Post1.swift */,
-				150C9D48296EE5F00097831F /* Profile1.swift */,
 			);
 			path = LoginSignupUI;
 			sourceTree = "<group>";
@@ -309,6 +295,20 @@
 				668C3860293F4F510027B074 /* EditProfileViewController.swift */,
 				66F975C7295084120083A0C4 /* FavouriteViewController.swift */,
 				66F975CB295084810083A0C4 /* FavouriteTableViewCell.swift */,
+				669368AD2939CAED001BE305 /* FloatingLabelInput.swift */,
+				668C3859293F36C00027B074 /* FollowStatus.swift */,
+				6655913C2950977300A51A62 /* FavoriteStatus.swift */,
+				6632DD7E2940C92C0053AAF3 /* Post.swift */,
+				66F412BE2941DC46002C9D83 /* SignupViewController.swift */,
+				6653977A294B57CC007B672B /* AddPost.swift */,
+				664FB7B8294CA808001ECDCC /* Profile.swift */,
+				6655913F2950A03600A51A62 /* Followers.swift */,
+				665591432950A31300A51A62 /* Like.swift */,
+				66D32474295C71CF001817E0 /* TermsViewController.swift */,
+				66D32477295C760B001817E0 /* termViewController.swift */,
+				15E784EA2968563F00957B51 /* UIResponder.swift */,
+				15569891296E8CFC00643206 /* Post1.swift */,
+				150C9D48296EE5F00097831F /* Profile1.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

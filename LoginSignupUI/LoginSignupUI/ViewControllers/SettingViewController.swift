@@ -98,7 +98,7 @@ class SettingViewController: UIViewController {
     }
     
     func retriveData() {
-        Database.database().reference().child("profile").observeSingleEvent(of: .childAdded) { (snapshot) in
+        Database.database().reference().child("profile").observeSingleEvent(of: .value) { (snapshot) in
             if let snapshotValue = snapshot.value as? [String: Any] {
                 self.profileName.text = snapshotValue["name"] as? String
                 self.email.text = snapshotValue["email"] as? String
@@ -134,7 +134,7 @@ class SettingViewController: UIViewController {
     }
     
 //    func downloadJSON(completed: @escaping () -> ()) {
-//        let url = URL(string: "http://192.168.1.71:3000/profile")
+//        let url = URL(string: "http://192.168.1.33:3000/profile")
 //        URLSession.shared.dataTask(with: url!) { (data, response, err) in
 //
 //            if err == nil {

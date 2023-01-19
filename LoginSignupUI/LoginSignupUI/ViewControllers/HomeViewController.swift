@@ -18,21 +18,6 @@ class HomeViewController: UIViewController {
     var post = [Post1]()
     @IBOutlet var tableView: UITableView!
     
-//        struct Data1 {
-//            let imgName: String
-//            let name: String
-//            let place: String
-//            let postImg: String
-//            var description: String
-//        }
-//
-    //    let data: [Data] = [
-    //        Data(imgName: "img1", name: "Prisha Mclaughlin", place: "Ahmedabad", postImg: "img2", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
-    //
-    //        Data(imgName: "img3", name: "Prisha Mclaughlin", place: "Ahmedabad", postImg: "img4", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
-    //
-    //        Data(imgName: "img5", name: "Prisha Mclaughlin", place: "Ahmedabad", postImg: "img6", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
-    //    ]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,25 +27,22 @@ class HomeViewController: UIViewController {
         configureItems()
         
         self.hidekeyboard()
-        downloadJSON {
-            self.tableView.reloadData()
-            print("Success")
-        }
         
-        /// download post
-        Database.database().reference().child("photoPost").observe(.childAdded) { (snapshot) in
-            
+//        downloadJSON {
+//            self.tableView.reloadData()
+//            print("Success")
+//        }
+        
+        Database.database().reference().child("photoPost").observe(.childAdded) { snapshot in
             let newPost = Post1(snapshot: snapshot)
             self.post.append(newPost)
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                    self.tableView.reloadData()
+                }
             }
-        }
     }
-    
 //    override func viewWillAppear(_ animated: Bool) {
-//        loaddata()
-//        tableView.reloadData()
+//        loadData()
 //    }
 //
 //    func loaddata() {
@@ -115,6 +97,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 //            cell.postImgView.image = nil
 //        }
 //        return cell
+        
         let cell: HomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
         let row = post[indexPath.row]
         cell.placeLbl?.text = row.place
@@ -133,15 +116,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if  let vc = storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController {
-//            let Cell = tableView.cellForRow(at: indexPath) as? HomeTableViewCell
-//            vc.profile = (Cell?.profileImg.image)!
-//            vc.nameLbl = (Cell?.nameLbl.text)!
-//            vc.placeLbl = (Cell?.placeLbl.text)!
-//            vc.post = (Cell?.postImgView.image)!
-//            vc.descriptionlbl = (Cell?.descriptionTextView.text)!
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -165,24 +139,22 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 //        return swipeConfiguration
 //    }
     
-    func downloadJSON(completed: @escaping () -> ()) {
-        let url = URL(string: "http://192.168.1.71:3000/posts")
-        URLSession.shared.dataTask(with: url!) { (data, response, err) in
-            
-            if err == nil {
-                do {
-                    self.addPost = try JSONDecoder().decode([AddPost].self, from: data!)
-                    DispatchQueue.main.async {
-                        completed()
-                    }
-                } catch {
-                    print("error fatching ")
-                }
-               
-               
-            }
-        }.resume()
-    }
+//    func downloadJSON(completed: @escaping () -> ()) {
+//        let url = URL(string: "http://192.168.1.33:3000/posts")
+//        URLSession.shared.dataTask(with: url!) { (data, response, err) in
+//
+//            if err == nil {
+//                do {
+//                    self.addPost = try JSONDecoder().decode([AddPost].self, from: data!)
+//                    DispatchQueue.main.async {
+//                        completed()
+//                    }
+//                } catch {
+//                    print("error fatching ")
+//                }
+//            }
+//        }.resume()
+//    }
     
 }
 
