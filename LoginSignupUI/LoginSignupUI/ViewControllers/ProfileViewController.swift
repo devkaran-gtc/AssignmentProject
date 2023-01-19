@@ -61,6 +61,24 @@ class ProfileViewController: UIViewController {
         profileName.text = profilenameLbl
         aboutLbl.text = about
         
+
+        downloadJSON {
+            self.profileName?.text = self.profile?.full_name
+            self.aboutLbl?.text = self.profile?.about_me
+            self.followers.text = "\((self.profile?.followers)!)"
+            self.following.text = "\((self.profile?.following)!)"
+            let imageurl = self.profile?.imageurl
+            let url = URL(string: imageurl!)
+            let data = try? Data(contentsOf: url!)
+            if let imageData = data {
+                let image = UIImage(data: imageData)
+                self.profileImgView.image = image
+            }else {
+                self.profileImgView.image = nil
+            }
+            print("Success")
+        }
+
 //        downloadJSON {
 //            self.profileName?.text = self.profile?.full_name
 //            self.aboutLbl?.text = self.profile?.about_me
@@ -77,6 +95,7 @@ class ProfileViewController: UIViewController {
 //            }
 //            print("Success")
 //        }
+
         
         let backImage = UIImage(named: "ic_back")
         let menuBtn = UIButton(type: .custom)
@@ -93,7 +112,11 @@ class ProfileViewController: UIViewController {
     }
     
     func retriveData() {
+//<<<<<<< Firebase
+  //      Database.database().reference().child("profile").observeSingleEvent(of: .value) { (snapshot) in
+//=======
         Database.database().reference().child("profile").observeSingleEvent(of: .childAdded) { (snapshot) in
+//>>>>>>> main
             if let snapshotValue = snapshot.value as? [String: Any] {
                 self.profileName.text = snapshotValue["name"] as? String
                 self.aboutLbl.text = snapshotValue["desc1"] as? String
@@ -113,7 +136,7 @@ class ProfileViewController: UIViewController {
     @objc func backButtonClick(sender : UIButton) {
             self.navigationController?.popViewController(animated: true);
         }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         loadData()
     }
@@ -121,6 +144,7 @@ class ProfileViewController: UIViewController {
     func loadData() {
         post = Post.shareInstance.fetchData()
     }
+
     
     @IBAction func editBtnTapped(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "EditProfileViewController") as? EditProfileViewController
@@ -137,7 +161,7 @@ class ProfileViewController: UIViewController {
     }
     
     func downloadJSON(completed: @escaping () -> ()) {
-        let url = URL(string: "http://192.168.1.71:3000/profile")
+        let url = URL(string: "http://192.168.1.33:3000/profile")
         URLSession.shared.dataTask(with: url!) { (data, response, err) in
 
             if err == nil {
