@@ -112,7 +112,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="bni-qp-Q6b">
                                 <rect key="frame" x="25" y="253.5" width="364" height="389"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="user name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i3s-y6-VkH" customClass="FloatingLabelInput" customModule="LoginSignupUI" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i3s-y6-VkH" customClass="FloatingLabelInput" customModule="LoginSignupUI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="69"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -123,10 +123,10 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelColor">
                                                 <color key="value" red="0.15686274510000001" green="0.80392156859999997" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="user name"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="User name"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O1n-lQ-lU5" customClass="FloatingLabelInput" customModule="LoginSignupUI" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O1n-lQ-lU5" customClass="FloatingLabelInput" customModule="LoginSignupUI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="80" width="364" height="69"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="69" id="Xd1-tz-viJ"/>
@@ -134,7 +134,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Po6-Y3-bfE" customClass="FloatingLabelInput" customModule="LoginSignupUI" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Po6-Y3-bfE" customClass="FloatingLabelInput" customModule="LoginSignupUI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="160" width="364" height="69"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -144,7 +144,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Po-M9-d8w" customClass="FloatingLabelInput" customModule="LoginSignupUI" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Po-M9-d8w" customClass="FloatingLabelInput" customModule="LoginSignupUI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="320" width="364" height="69"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -260,7 +260,7 @@
             </objects>
             <point key="canvasLocation" x="2686.9565217391305" y="426.5625"/>
         </scene>
-        <!--Terms View Controller-->
+        <!--Terms & Conditions-->
         <scene sceneID="5Bz-gT-rcc">
             <objects>
                 <viewController id="YNr-kq-lwu" customClass="TermsViewController" customModule="LoginSignupUI" customModuleProvider="target" sceneMemberID="viewController">
@@ -268,11 +268,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PTW-i8-vug">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTW-i8-vug">
+                                <rect key="frame" x="20" y="88" width="374" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -281,11 +281,11 @@
                         <constraints>
                             <constraint firstItem="8Vl-Vq-I2G" firstAttribute="bottom" secondItem="PTW-i8-vug" secondAttribute="bottom" id="BCp-zU-C2m"/>
                             <constraint firstItem="PTW-i8-vug" firstAttribute="top" secondItem="8Vl-Vq-I2G" secondAttribute="top" id="EX2-SB-sPb"/>
-                            <constraint firstItem="PTW-i8-vug" firstAttribute="leading" secondItem="8Vl-Vq-I2G" secondAttribute="leading" id="ZcG-Es-cOU"/>
-                            <constraint firstItem="8Vl-Vq-I2G" firstAttribute="trailing" secondItem="PTW-i8-vug" secondAttribute="trailing" id="rwl-O2-Fs6"/>
+                            <constraint firstItem="PTW-i8-vug" firstAttribute="leading" secondItem="8Vl-Vq-I2G" secondAttribute="leading" constant="20" id="ZcG-Es-cOU"/>
+                            <constraint firstItem="8Vl-Vq-I2G" firstAttribute="trailing" secondItem="PTW-i8-vug" secondAttribute="trailing" constant="20" id="rwl-O2-Fs6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="FLO-U2-9Tt"/>
+                    <navigationItem key="navigationItem" title="Terms &amp; Conditions" id="FLO-U2-9Tt"/>
                     <connections>
                         <outlet property="txtView" destination="PTW-i8-vug" id="U5D-hN-IfB"/>
                     </connections>
@@ -1782,20 +1782,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aVe-Jq-CjS">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVe-Jq-CjS">
+                                <rect key="frame" x="20" y="44" width="374" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HBs-el-JbE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="HBs-el-JbE" firstAttribute="trailing" secondItem="aVe-Jq-CjS" secondAttribute="trailing" id="BA6-Uf-DGQ"/>
+                            <constraint firstItem="HBs-el-JbE" firstAttribute="trailing" secondItem="aVe-Jq-CjS" secondAttribute="trailing" constant="20" id="BA6-Uf-DGQ"/>
                             <constraint firstItem="aVe-Jq-CjS" firstAttribute="top" secondItem="HBs-el-JbE" secondAttribute="top" id="RAs-kN-yoF"/>
-                            <constraint firstItem="aVe-Jq-CjS" firstAttribute="leading" secondItem="HBs-el-JbE" secondAttribute="leading" id="dfw-Cz-RwT"/>
+                            <constraint firstItem="aVe-Jq-CjS" firstAttribute="leading" secondItem="HBs-el-JbE" secondAttribute="leading" constant="20" id="dfw-Cz-RwT"/>
                             <constraint firstItem="HBs-el-JbE" firstAttribute="bottom" secondItem="aVe-Jq-CjS" secondAttribute="bottom" id="eHS-0V-yJ6"/>
                         </constraints>
                     </view>
