@@ -274,6 +274,12 @@
 				664BDDF82935DB1C00F173EA /* Info.plist */,
 				6655EEE8294708DE008558CB /* PostItem.xcdatamodeld */,
 				66D32471295C7001001817E0 /* terms.txt */,
+				66D32474295C71CF001817E0 /* TermsViewController.swift */,
+				66D32477295C760B001817E0 /* termViewController.swift */,
+				15E784EA2968563F00957B51 /* UIResponder.swift */,
+				15569891296E8CFC00643206 /* Post1.swift */,
+				150C9D48296EE5F00097831F /* Profile1.swift */,
+
 			);
 			path = LoginSignupUI;
 			sourceTree = "<group>";

@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
         configureItems()
         
         self.hidekeyboard()
-        
+
 //        downloadJSON {
 //            self.tableView.reloadData()
 //            print("Success")
@@ -97,7 +97,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 //            cell.postImgView.image = nil
 //        }
 //        return cell
-        
         let cell: HomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
         let row = post[indexPath.row]
         cell.placeLbl?.text = row.place
@@ -116,6 +115,15 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if  let vc = storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController {
+//            let Cell = tableView.cellForRow(at: indexPath) as? HomeTableViewCell
+//            vc.profile = (Cell?.profileImg.image)!
+//            vc.nameLbl = (Cell?.nameLbl.text)!
+//            vc.placeLbl = (Cell?.placeLbl.text)!
+//            vc.post = (Cell?.postImgView.image)!
+//            vc.descriptionlbl = (Cell?.descriptionTextView.text)!
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
