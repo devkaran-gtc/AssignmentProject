@@ -112,11 +112,9 @@ class ProfileViewController: UIViewController {
     }
     
     func retriveData() {
-//<<<<<<< Firebase
-  //      Database.database().reference().child("profile").observeSingleEvent(of: .value) { (snapshot) in
-//=======
-        Database.database().reference().child("profile").observeSingleEvent(of: .childAdded) { (snapshot) in
-//>>>>>>> main
+
+    Database.database().reference().child("profile").observeSingleEvent(of: .value) { (snapshot) in
+
             if let snapshotValue = snapshot.value as? [String: Any] {
                 self.profileName.text = snapshotValue["name"] as? String
                 self.aboutLbl.text = snapshotValue["desc1"] as? String
@@ -160,20 +158,20 @@ class ProfileViewController: UIViewController {
         self.present(VC1, animated: true, completion: nil)
     }
     
-    func downloadJSON(completed: @escaping () -> ()) {
-        let url = URL(string: "http://192.168.1.33:3000/profile")
-        URLSession.shared.dataTask(with: url!) { (data, response, err) in
-
-            if err == nil {
-                do {
-                    self.profile = try JSONDecoder().decode(Profile.self, from: data!)
-                    DispatchQueue.main.async {
-                        completed()
-                    }
-                } catch {
-                    print("error fatching \(error)")
-                }
-            }
-        }.resume()
-    }
+//    func downloadJSON(completed: @escaping () -> ()) {
+//        let url = URL(string: "http://192.168.1.33:3000/profile")
+//        URLSession.shared.dataTask(with: url!) { (data, response, err) in
+//
+//            if err == nil {
+//                do {
+//                    self.profile = try JSONDecoder().decode(Profile.self, from: data!)
+//                    DispatchQueue.main.async {
+//                        completed()
+//                    }
+//                } catch {
+//                    print("error fatching \(error)")
+//                }
+//            }
+//        }.resume()
+//    }
 }

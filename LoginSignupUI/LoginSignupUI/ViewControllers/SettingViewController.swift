@@ -98,11 +98,9 @@ class SettingViewController: UIViewController {
     }
     
     func retriveData() {
-//<<<<<<< Firebase
-  //      Database.database().reference().child("profile").observeSingleEvent(of: .value) { (snapshot) in
 
-        Database.database().reference().child("profile").observeSingleEvent(of: .childAdded) { (snapshot) in
-//>>>>>>> main
+        Database.database().reference().child("profile").observeSingleEvent(of: .value) { (snapshot) in
+
             if let snapshotValue = snapshot.value as? [String: Any] {
                 self.profileName.text = snapshotValue["name"] as? String
                 self.email.text = snapshotValue["email"] as? String
