@@ -77,11 +77,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		150C9D48296EE5F00097831F /* Profile1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile1.swift; sourceTree = "<group>"; };
+		150C9D48296EE5F00097831F /* Profile1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Profile1.swift; path = ../Profile1.swift; sourceTree = "<group>"; };
 		1524316B297AC5C300CCDAF0 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TermsViewController.swift; path = LoginSignupUI/TermsViewController.swift; sourceTree = SOURCE_ROOT; };
 		1524316D297AC64E00CCDAF0 /* termViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = termViewController.swift; path = LoginSignupUI/termViewController.swift; sourceTree = SOURCE_ROOT; };
 		154FB3F4297137AA005E3074 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		15569891296E8CFC00643206 /* Post1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post1.swift; sourceTree = "<group>"; };
+		15569891296E8CFC00643206 /* Post1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Post1.swift; path = ../Post1.swift; sourceTree = "<group>"; };
 		15F1C07D296BE67E00064379 /* IQTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQTextView.swift; sourceTree = "<group>"; };
 		15F1C07E296BE67E00064379 /* IQKeyboardManager+Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQKeyboardManager+Internal.swift"; sourceTree = "<group>"; };
 		15F1C080296BE67E00064379 /* IQPreviousNextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQPreviousNextView.swift; sourceTree = "<group>"; };
@@ -272,8 +272,6 @@
 				664BDDF82935DB1C00F173EA /* Info.plist */,
 				6655EEE8294708DE008558CB /* PostItem.xcdatamodeld */,
 				66D32471295C7001001817E0 /* terms.txt */,
-				15569891296E8CFC00643206 /* Post1.swift */,
-				150C9D48296EE5F00097831F /* Profile1.swift */,
 			);
 			path = LoginSignupUI;
 			sourceTree = "<group>";
@@ -281,8 +279,6 @@
 		664C179029388CD20034E4FB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				1524316D297AC64E00CCDAF0 /* termViewController.swift */,
-				1524316B297AC5C300CCDAF0 /* TermsViewController.swift */,
 				664BDDEE2935DB1A00F173EA /* ViewController.swift */,
 				6603A95829376C7D00D7EB70 /* HomeViewController.swift */,
 				6603A95B293789B200D7EB70 /* HomeTableViewCell.swift */,
@@ -306,6 +302,10 @@
 				664FB7B8294CA808001ECDCC /* Profile.swift */,
 				6655913F2950A03600A51A62 /* Followers.swift */,
 				665591432950A31300A51A62 /* Like.swift */,
+				1524316B297AC5C300CCDAF0 /* TermsViewController.swift */,
+				1524316D297AC64E00CCDAF0 /* termViewController.swift */,
+				15569891296E8CFC00643206 /* Post1.swift */,
+				150C9D48296EE5F00097831F /* Profile1.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
