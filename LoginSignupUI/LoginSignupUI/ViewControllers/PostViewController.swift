@@ -186,7 +186,7 @@ extension PostViewController {
         let post = "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
         guard let desc = self.descriptionTxtView.text else { return }
         
-        if let url = URL(string: "http://192.168.1.34:3000/posts"){
+        if let url = URL(string: "http://192.168.1.33:3000/posts"){
             var request = URLRequest(url: url)
             request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
             request.httpMethod = "PUT"
