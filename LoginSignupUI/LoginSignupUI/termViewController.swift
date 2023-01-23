@@ -24,7 +24,7 @@ class termViewController: UIViewController {
         menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 46).isActive = true
         menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 46).isActive = true
         self.navigationItem.leftBarButtonItem = menuBarItem
-       
+        self.navigationItem.title = "Terms & Conditions"
         
     }
     
