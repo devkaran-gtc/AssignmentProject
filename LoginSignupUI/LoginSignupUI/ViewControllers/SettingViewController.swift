@@ -16,6 +16,7 @@ class SettingViewController: UIViewController {
     @IBOutlet var badge2: UILabel!
     @IBOutlet var badge3: UILabel!
     @IBOutlet var badge4: UILabel!
+    @IBOutlet var badge5: UILabel!
     @IBOutlet var backBtn1: UIButton!
     @IBOutlet var backBtn2: UIButton!
     @IBOutlet var backBtn3: UIButton!
@@ -31,17 +32,19 @@ class SettingViewController: UIViewController {
     @IBOutlet var view3: UIView!
     @IBOutlet var view4: UIView!
     @IBOutlet var view5: UIView!
+    @IBOutlet var view6: UIView!
+    @IBOutlet var view7: UIView!
+    @IBOutlet var view8: UIView!
+    @IBOutlet var view9: UIView!
+    @IBOutlet var timeTextField: UITextField!
     @IBOutlet var logOutBtn: UIButton!
     
     var profile: Profile?
-  //  var diameter: CGFloat = 30.0
 
-   
+    let timePicker = UIDatePicker()
     override func viewDidLoad() {
-        
         super.viewDidLoad()
 
-    
         view2.layer.masksToBounds = true
         view3.layer.masksToBounds = true
         view4.layer.masksToBounds = true
@@ -60,6 +63,7 @@ class SettingViewController: UIViewController {
         badge2?.layer.masksToBounds = true
         badge3?.layer.masksToBounds = true
         badge4?.layer.masksToBounds = true
+        badge5?.layer.masksToBounds = true
         profileImage1.layer.masksToBounds = true
         logOutBtn.layer.masksToBounds = true
         
@@ -67,11 +71,13 @@ class SettingViewController: UIViewController {
         badge2.layer.cornerRadius = badge2.frame.size.width / 2
         badge3.layer.cornerRadius = badge3.frame.size.width / 2
         badge4.layer.cornerRadius = badge4.frame.size.width / 2
+        badge5.layer.cornerRadius = badge5.frame.size.width / 2
         profileImage1.layer.cornerRadius = profileImage1.frame.size.width / 2
         profileImage1.layer.borderWidth = 3
         profileImage1.layer.borderColor = #colorLiteral(red: 0.3019607843, green: 0.8509803922, blue: 0.4196078431, alpha: 1)
         logOutBtn.layer.borderWidth = 0.2
         logOutBtn.layer.borderColor = #colorLiteral(red: 0.3019607843, green: 0.8509803922, blue: 0.4196078431, alpha: 1)
+        logOutBtn.layer.cornerRadius = 7
     
 //        downloadJSON {
 //            self.profileName?.text = self.profile?.full_name
@@ -93,14 +99,21 @@ class SettingViewController: UIViewController {
         self.view1.addGestureRecognizer(gesture)
         
         let gesture1 = UITapGestureRecognizer(target: self, action: #selector(navigate1))
-        self.view5.addGestureRecognizer(gesture1)
+        self.view8.addGestureRecognizer(gesture1)
+        
+        timePicker.datePickerMode = .time
+        timePicker.preferredDatePickerStyle = .wheels
+        timePicker.frame.size = CGSize(width: 0, height: 200)
+        view.addSubview(timePicker)
+        timeTextField.inputView = timePicker
+        let gesture2 = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        self.view9.addGestureRecognizer(gesture2)
+        
         retriveData()
     }
     
     func retriveData() {
-
         Database.database().reference().child("profile").observeSingleEvent(of: .value) { (snapshot) in
-
             if let snapshotValue = snapshot.value as? [String: Any] {
                 self.profileName.text = snapshotValue["name"] as? String
                 self.email.text = snapshotValue["email"] as? String
@@ -115,6 +128,16 @@ class SettingViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @objc func viewTapped(_ sender:UITapGestureRecognizer){
+        timePicker.addTarget(self, action: #selector(timePickerValueChanged(sender:)), for: UIControl.Event.valueChanged)
+    }
+    
+    @objc func timePickerValueChanged(sender: UIDatePicker){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        timeTextField.text = formatter.string(from: sender.date)
     }
     
     @objc func navigate1(_ sender:UITapGestureRecognizer){

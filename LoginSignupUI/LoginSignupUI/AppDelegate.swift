@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldShowToolbarPlaceholder = false
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         print(urls[urls.count-1] as URL)
         // Override point for customization after application launch.

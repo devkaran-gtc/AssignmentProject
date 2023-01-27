@@ -182,7 +182,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                 } else {
                     // User was created successfully, now store the first name and last name
                     let db = Firestore.firestore()
-                    db.collection("user").addDocument(data: ["firstname": username, "country": country, "uid": result!.user.uid]) { (error) in
+                    db.collection("user").addDocument(data: ["uid": result!.user.uid, "firstname": username, "country": country]) { (error) in
 
                         if error != nil {
                             // Show error message
