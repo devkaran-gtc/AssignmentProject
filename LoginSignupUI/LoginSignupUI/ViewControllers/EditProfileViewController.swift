@@ -18,6 +18,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet var aboutTxtView: UITextView!
     @IBOutlet var saveBtn: UIButton!
     @IBOutlet var addImageBtn: UIButton!
+    @IBOutlet var dateTextField: UITextField!
     
   //  var ref:DatabaseReference?
     override func viewDidLoad() {
@@ -50,10 +51,24 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         nameTextField.delegate = self
         emailLbl.delegate = self
+        dateTextField.delegate = self
+        
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.addTarget(self, action: #selector(datePickerValueChanged(sender: )), for: UIControl.Event.valueChanged)
+        datePicker.frame.size = CGSize(width: 0, height: 250)
+        dateTextField.inputView = datePicker
         
         self.hidekeyboard()
     }
 
+    @objc func datePickerValueChanged(sender: UIDatePicker){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        dateTextField.text = formatter.string(from: sender.date)
+    }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if nameTextField.placeholder == "" {
             nameTextField.textColor = .black
@@ -68,6 +83,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             emailLbl.layer.borderWidth = 1
             emailLbl.layer.borderColor = #colorLiteral(red: 0.3019607843, green: 0.8509803922, blue: 0.4117647059, alpha: 1)
         }
+        
+        if dateTextField.placeholder == "" {
+            dateTextField.textColor = .black
+            dateTextField.layer.cornerRadius = 7
+            dateTextField.layer.borderWidth = 1
+            dateTextField.layer.borderColor = #colorLiteral(red: 0.3019607843, green: 0.8509803922, blue: 0.4117647059, alpha: 1)
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -77,6 +99,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         if emailLbl.text == "" {
             emailLbl.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        }
+        
+        if dateTextField.text == "" {
+            dateTextField.layer.borderColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
         }
     }
     

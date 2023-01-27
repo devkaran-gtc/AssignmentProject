@@ -60,7 +60,6 @@ class ProfileViewController: UIViewController {
         profileImgView.image = profileImg
         profileName.text = profilenameLbl
         aboutLbl.text = about
-        
 
 //        downloadJSON {
 //            self.profileName?.text = self.profile?.full_name
@@ -79,24 +78,6 @@ class ProfileViewController: UIViewController {
 //            print("Success")
 //        }
 
-//        downloadJSON {
-//            self.profileName?.text = self.profile?.full_name
-//            self.aboutLbl?.text = self.profile?.about_me
-//            self.followers.text = "\((self.profile?.followers)!)"
-//            self.following.text = "\((self.profile?.following)!)"
-//            let imageurl = self.profile?.imageurl
-//            let url = URL(string: imageurl!)
-//            let data = try? Data(contentsOf: url!)
-//            if let imageData = data {
-//                let image = UIImage(data: imageData)
-//                self.profileImgView.image = image
-//            }else {
-//                self.profileImgView.image = nil
-//            }
-//            print("Success")
-//        }
-
-        
         let backImage = UIImage(named: "ic_back")
         let menuBtn = UIButton(type: .custom)
         menuBtn.setImage(backImage, for: .normal)
