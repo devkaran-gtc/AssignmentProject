@@ -260,7 +260,7 @@
             </objects>
             <point key="canvasLocation" x="2686.9565217391305" y="426.5625"/>
         </scene>
-        <!--Terms View Controller-->
+        <!--Terms & Conditions-->
         <scene sceneID="5Bz-gT-rcc">
             <objects>
                 <viewController id="YNr-kq-lwu" customClass="TermsViewController" customModule="LoginSignupUI" customModuleProvider="target" sceneMemberID="viewController">
@@ -269,7 +269,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTW-i8-vug">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="20" y="88" width="374" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
@@ -281,11 +281,11 @@
                         <constraints>
                             <constraint firstItem="8Vl-Vq-I2G" firstAttribute="bottom" secondItem="PTW-i8-vug" secondAttribute="bottom" id="BCp-zU-C2m"/>
                             <constraint firstItem="PTW-i8-vug" firstAttribute="top" secondItem="8Vl-Vq-I2G" secondAttribute="top" id="EX2-SB-sPb"/>
-                            <constraint firstItem="PTW-i8-vug" firstAttribute="leading" secondItem="8Vl-Vq-I2G" secondAttribute="leading" id="ZcG-Es-cOU"/>
-                            <constraint firstItem="8Vl-Vq-I2G" firstAttribute="trailing" secondItem="PTW-i8-vug" secondAttribute="trailing" id="rwl-O2-Fs6"/>
+                            <constraint firstItem="PTW-i8-vug" firstAttribute="leading" secondItem="8Vl-Vq-I2G" secondAttribute="leading" constant="20" id="ZcG-Es-cOU"/>
+                            <constraint firstItem="8Vl-Vq-I2G" firstAttribute="trailing" secondItem="PTW-i8-vug" secondAttribute="trailing" constant="20" id="rwl-O2-Fs6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="FLO-U2-9Tt"/>
+                    <navigationItem key="navigationItem" title="Terms &amp; Conditions" id="FLO-U2-9Tt"/>
                     <connections>
                         <outlet property="txtView" destination="PTW-i8-vug" id="3gr-cf-Oui"/>
                     </connections>
@@ -1819,7 +1819,7 @@
                         <outlet property="logOutBtn" destination="1bZ-2j-Vsl" id="p0o-4A-fJM"/>
                         <outlet property="profileImage1" destination="Clh-js-QKW" id="n4c-n4-6wu"/>
                         <outlet property="profileName" destination="CdY-Pf-2cp" id="IHf-Xh-glW"/>
-                        <outlet property="timeTextField" destination="tfK-4d-DIq" id="Cks-ri-gli"/>
+                        <outlet property="timeTextField" destination="tfK-4d-DIq" id="kjX-Cd-Maw"/>
                         <outlet property="view1" destination="fRU-rD-oDl" id="sAb-yt-7Sa"/>
                         <outlet property="view2" destination="uWe-f5-oYw" id="yAP-LI-Ptv"/>
                         <outlet property="view3" destination="Z70-Tg-2I7" id="iSh-u1-ymE"/>
@@ -1844,7 +1844,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVe-Jq-CjS">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="20" y="44" width="374" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
@@ -1854,9 +1854,9 @@
                         <viewLayoutGuide key="safeArea" id="HBs-el-JbE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="HBs-el-JbE" firstAttribute="trailing" secondItem="aVe-Jq-CjS" secondAttribute="trailing" id="BA6-Uf-DGQ"/>
+                            <constraint firstItem="HBs-el-JbE" firstAttribute="trailing" secondItem="aVe-Jq-CjS" secondAttribute="trailing" constant="20" id="BA6-Uf-DGQ"/>
                             <constraint firstItem="aVe-Jq-CjS" firstAttribute="top" secondItem="HBs-el-JbE" secondAttribute="top" id="RAs-kN-yoF"/>
-                            <constraint firstItem="aVe-Jq-CjS" firstAttribute="leading" secondItem="HBs-el-JbE" secondAttribute="leading" id="dfw-Cz-RwT"/>
+                            <constraint firstItem="aVe-Jq-CjS" firstAttribute="leading" secondItem="HBs-el-JbE" secondAttribute="leading" constant="20" id="dfw-Cz-RwT"/>
                             <constraint firstItem="HBs-el-JbE" firstAttribute="bottom" secondItem="aVe-Jq-CjS" secondAttribute="bottom" id="eHS-0V-yJ6"/>
                         </constraints>
                     </view>

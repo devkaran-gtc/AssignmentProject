@@ -9,8 +9,9 @@ import UIKit
 import FirebaseCore
 import FirebaseStorage
 import FirebaseDatabase
+import UserNotifications
 
-class SettingViewController: UIViewController {
+class SettingViewController: UIViewController, UNUserNotificationCenterDelegate {
 
     @IBOutlet var badge1: UILabel!
     @IBOutlet var badge2: UILabel!
@@ -42,6 +43,7 @@ class SettingViewController: UIViewController {
     var profile: Profile?
 
     let timePicker = UIDatePicker()
+    let notificationCenter = UNUserNotificationCenter.current()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -104,10 +106,17 @@ class SettingViewController: UIViewController {
         timePicker.datePickerMode = .time
         timePicker.preferredDatePickerStyle = .wheels
         timePicker.frame.size = CGSize(width: 0, height: 200)
-        view.addSubview(timePicker)
-        timeTextField.inputView = timePicker
+        self.view.addSubview(timePicker)
         let gesture2 = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         self.view9.addGestureRecognizer(gesture2)
+        
+        UNUserNotificationCenter.current().delegate = self
+                
+        notificationCenter.requestAuthorization(options: [.alert]) { permissionGranted, error in
+            if(!permissionGranted){
+                print("Permission Denied")
+            }
+        }
         
         retriveData()
     }
@@ -132,14 +141,60 @@ class SettingViewController: UIViewController {
     
     @objc func viewTapped(_ sender:UITapGestureRecognizer){
         timePicker.addTarget(self, action: #selector(timePickerValueChanged(sender:)), for: UIControl.Event.valueChanged)
+        timeTextField.inputView = timePicker
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+         let touch = touches.first
+         if touch?.view == self.view {
+            timePicker.removeFromSuperview()
+        }
     }
     
     @objc func timePickerValueChanged(sender: UIDatePicker){
         let formatter = DateFormatter()
         formatter.dateFormat = "h:mm a"
-        timeTextField.text = formatter.string(from: sender.date)
+        timeTextField.text  = formatter.string(from: sender.date)
+        
+        notificationCenter.getNotificationSettings { settings in
+            DispatchQueue.main.async {
+                if(settings.authorizationStatus == .authorized) {
+                    let content = UNMutableNotificationContent()
+                    content.title = "Friends Network"
+                    content.body = "It's time to check new posts for the Day!"
+
+                    let dateComp = Calendar.current.dateComponents([.hour, .minute], from: self.timePicker.date)
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComp, repeats: false)
+                    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+                    self.notificationCenter.add(request) { error in
+                        if(error != nil) {
+                            print("Error" + error.debugDescription)
+                            return
+                        }
+                    }
+
+                } else {
+                    let ac = UIAlertController(title: "Enable Notification?", message: "To use this feature you must enable notifications in settings", preferredStyle: .alert)
+                    let goToSetting = UIAlertAction(title: "Settings", style: .default) { _ in
+                        guard let settingsURL = URL(string: UIApplication.openSettingsURLString)
+                        else {
+                            return
+                        }
+
+                        if(UIApplication.shared.canOpenURL(settingsURL)) {
+                            UIApplication.shared.open(settingsURL) { _ in }
+                        }
+                    }
+                    ac.addAction(goToSetting)
+                    ac.addAction(UIAlertAction(title: "Cancle", style: .default, handler: { _ in }))
+                    self.present(ac, animated: true)
+                }
+            }
+        }
     }
-    
+
     @objc func navigate1(_ sender:UITapGestureRecognizer){
         let vc1 = storyboard?.instantiateViewController(withIdentifier: "terms") as? termViewController
         vc1?.modalPresentationStyle = .fullScreen
