@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		150C9D49296EE5F00097831F /* Profile1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150C9D48296EE5F00097831F /* Profile1.swift */; };
+		150D3FE22987D7ED00DFEDBB /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150D3FE12987D7ED00DFEDBB /* LocationViewController.swift */; };
 		1524316C297AC5C300CCDAF0 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1524316B297AC5C300CCDAF0 /* TermsViewController.swift */; };
 		1524316E297AC64E00CCDAF0 /* termViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1524316D297AC64E00CCDAF0 /* termViewController.swift */; };
 		154FB3F5297137AA005E3074 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 154FB3F4297137AA005E3074 /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 
 /* Begin PBXFileReference section */
 		150C9D48296EE5F00097831F /* Profile1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Profile1.swift; path = ../Profile1.swift; sourceTree = "<group>"; };
+		150D3FE12987D7ED00DFEDBB /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = SOURCE_ROOT; };
 		1524316B297AC5C300CCDAF0 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TermsViewController.swift; path = LoginSignupUI/TermsViewController.swift; sourceTree = SOURCE_ROOT; };
 		1524316D297AC64E00CCDAF0 /* termViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = termViewController.swift; path = LoginSignupUI/termViewController.swift; sourceTree = SOURCE_ROOT; };
 		154FB3F4297137AA005E3074 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				1524316D297AC64E00CCDAF0 /* termViewController.swift */,
 				15569891296E8CFC00643206 /* Post1.swift */,
 				150C9D48296EE5F00097831F /* Profile1.swift */,
+				150D3FE12987D7ED00DFEDBB /* LocationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				15F1C0AC296BE67E00064379 /* IQUIView+Hierarchy.swift in Sources */,
 				66B60912293DFF60000A2F5E /* FollowerTableViewCell.swift in Sources */,
 				15F1C0A0296BE67E00064379 /* IQKeyboardManager+UIKeyboardNotification.swift in Sources */,
+				150D3FE22987D7ED00DFEDBB /* LocationViewController.swift in Sources */,
 				15F1C0AE296BE67E00064379 /* IQKeyboardManager+UITextFieldViewNotification.swift in Sources */,
 				150C9D49296EE5F00097831F /* Profile1.swift in Sources */,
 				66B608E0293DFDAB000A2F5E /* FollowerViewController.swift in Sources */,

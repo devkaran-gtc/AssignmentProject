@@ -29,8 +29,8 @@ class termViewController: UIViewController {
     }
     
     @objc func backButtonClick(sender : UIButton) {
-            self.navigationController?.popViewController(animated: true);
-        }
+        self.navigationController?.popViewController(animated: true);
+    }
     
     
     func load1(file name:String) -> String {

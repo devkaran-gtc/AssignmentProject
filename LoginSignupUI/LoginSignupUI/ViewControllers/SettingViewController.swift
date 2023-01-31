@@ -97,18 +97,21 @@ class SettingViewController: UIViewController, UNUserNotificationCenterDelegate 
 //            }
 //            print("Success")
 //        }
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(navigate))
-        self.view1.addGestureRecognizer(gesture)
+        let navigate = UITapGestureRecognizer(target: self, action: #selector(navigate))
+        self.view1.addGestureRecognizer(navigate)
         
-        let gesture1 = UITapGestureRecognizer(target: self, action: #selector(navigate1))
-        self.view8.addGestureRecognizer(gesture1)
+        let navigateToLocation = UITapGestureRecognizer(target: self, action: #selector(navigateToLocation))
+        self.view8.addGestureRecognizer(navigateToLocation)
+        
+        let navigateToTerms = UITapGestureRecognizer(target: self, action: #selector(navigateToTerms))
+        self.view9.addGestureRecognizer(navigateToTerms)
         
         timePicker.datePickerMode = .time
         timePicker.preferredDatePickerStyle = .wheels
         timePicker.frame.size = CGSize(width: 0, height: 200)
         self.view.addSubview(timePicker)
-        let gesture2 = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
-        self.view9.addGestureRecognizer(gesture2)
+        let viewTapped = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        self.view5.addGestureRecognizer(viewTapped)
         
         UNUserNotificationCenter.current().delegate = self
                 
@@ -140,6 +143,8 @@ class SettingViewController: UIViewController, UNUserNotificationCenterDelegate 
     }
     
     @objc func viewTapped(_ sender:UITapGestureRecognizer){
+        
+        timeTextField.becomeFirstResponder()
         timePicker.addTarget(self, action: #selector(timePickerValueChanged(sender:)), for: UIControl.Event.valueChanged)
         timeTextField.inputView = timePicker
         
@@ -195,7 +200,13 @@ class SettingViewController: UIViewController, UNUserNotificationCenterDelegate 
         }
     }
 
-    @objc func navigate1(_ sender:UITapGestureRecognizer){
+    @objc func navigateToLocation(_ sender:UITapGestureRecognizer){
+        let vc1 = storyboard?.instantiateViewController(withIdentifier: "location") as? LocationViewController
+        vc1?.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(vc1!, animated: true)
+    }
+    
+    @objc func navigateToTerms(_ sender:UITapGestureRecognizer){
         let vc1 = storyboard?.instantiateViewController(withIdentifier: "terms") as? termViewController
         vc1?.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(vc1!, animated: true)
